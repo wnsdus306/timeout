@@ -19,7 +19,9 @@ import mainapp.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mainapp.views.home, name='home'),
+    path('', mainapp.views.index, name='index'),
+    path('login/', mainapp.views.login, name='login'),
     path('accounts/', include('allauth.urls')),
+    path('home/', mainapp.views.home, name='home'),
 ]
 
