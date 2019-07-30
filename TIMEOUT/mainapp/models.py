@@ -17,3 +17,4 @@ class User_history(models.Model):
     def __str__(self):
         return self.history_title
 
+
