@@ -1,11 +1,18 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import Group_account,User_account,User_history,Schedule
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    g = get_object_or_404(Group_account, pk=1)
+
+    for check in g.members.all() :
+        print(check.name.username)
+        print(check.user_money)
+    
+    return render(request, 'index.html',{'g': g})
 
 def login(request):
     auth.logout(request)

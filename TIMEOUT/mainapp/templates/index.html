@@ -1,2 +1,7 @@
 소개페이지입니당!!!!!!!!!!!!!!!!!!!!
 <a href='{% url "login" %}'>시작하기</a>
+
+
+{% for check in g.members.all%}
+    {{check.name.username}}
+{% endfor %}

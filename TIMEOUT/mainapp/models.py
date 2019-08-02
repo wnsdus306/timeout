@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class User_account(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     user_money = models.IntegerField()
-    
     def __str__(self):
         return self.user.username
 
@@ -21,8 +20,8 @@ class User_history(models.Model):
 
 class Group_account(models.Model):
     title = models.CharField(max_length=100)
-    Group_money = models.IntegerField()
-    user = models.ManyToManyField(User_account)
+    group_money = models.IntegerField()
+    members = models.ManyToManyField(User_account)
 
     def __str__(self):
         return self.title
