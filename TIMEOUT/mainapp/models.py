@@ -9,6 +9,7 @@ class User_account(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class User_history(models.Model):
     history_title = models.CharField(max_length=100)
     user_history_money = models.IntegerField()
@@ -18,4 +19,20 @@ class User_history(models.Model):
         return self.history_title
 
 
+class Group_account(models.Model):
+    title = models.CharField(max_length=100)
+    Group_money = models.IntegerField()
+    user = models.ManyToManyField(User_account)
 
+    def __str__(self):
+        return self.title
+
+class Schedule(models.Model):
+    group_ac = models.ForeignKey(Group_account, on_delete= models.CASCADE, null =True)
+    title = models.CharField(max_length=100)
+    date = models.DateTimeField('date published')
+    penalty = models.IntegerField()
+    location = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.title
