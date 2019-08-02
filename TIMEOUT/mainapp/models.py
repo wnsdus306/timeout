@@ -18,3 +18,4 @@ class User_history(models.Model):
         return self.history_title
 
 
+
