@@ -6,19 +6,17 @@ from .models import Group_account,User_account,User_history,Schedule
 # Create your views here.
 
 def index(request):
-    g = get_object_or_404(Group_account, pk=1)
+    #g = get_object_or_404(Group_account, pk=1)
 
-    for check in g.members.all() :
-        print(check.name.username)
-        print(check.user_money)
+    #for check in g.members.all() :
+    #    print(check.name.username)
+    #    print(check.user_money)
     
-    return render(request, 'index.html',{'g': g})
+    return render(request, 'index.html')
 
 def login(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        return render(request, 'login.html')
+    auth.logout(request)
+    return render(request, 'login.html')
 
 def home(request):
     return render(request, 'home.html')
