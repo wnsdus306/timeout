@@ -15,8 +15,10 @@ def index(request):
     return render(request, 'index.html',{'g': g})
 
 def login(request):
-    auth.logout(request)
-    return render(request, 'login.html')
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return render(request, 'login.html')
 
 def home(request):
     return render(request, 'home.html')

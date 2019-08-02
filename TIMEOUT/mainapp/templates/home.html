@@ -2,3 +2,6 @@
 
 홈 화면입니다.
 
+{% for check in g.members.all%}
+    {{check.name.username}}
+{% endfor %}
