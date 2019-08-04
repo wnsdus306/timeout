@@ -1,1 +1,149 @@
-그룹페이지
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>모임계좌 페이지</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- css연결 -->
+    <link rel="stylesheet" type="text/css" href="../static/css/group.css">
+    <!-- jQuery 연결 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.fullpage/2.9.4/jquery.fullpage.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/jquery.fullpage/2.9.4/jquery.fullpage.min.css">
+    <!-- bootstap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div class="center">
+        <div class="page">
+            <!--고정 상단바-->
+            <div class="head-bar">
+                <a href=""><img id="icon1" src="../static/img/list.png" alt=""></a>
+                <a href=""><img id="logo" src="../static/img/로고화이트.png" alt=""></a>
+                <a href=""><img id="icon2" src="../static/img/pencil.png" alt=""></a>
+            </div>
+            <div class="group-thumbnail">
+                <span id="name">멋쟁이사자처럼</span>
+                <!-- <span id="group">&nbsp모임</span> -->
+                <br><br>
+                <img id="thumbnail" src="../static/img/노아.png" alt="">
+                <img id="thumbnail" src="../static/img/썸네일.jpg" alt="">
+                <img id="thumbnail" src="../static/img/꼬맹이 (2).jpg" alt="">
+                <img id="thumbnail" src="../static/img/jgy.jpg" alt="">
+            </div>
+            <div class="schedule">
+                <span id="schedule-name">토익스터디</span>
+                <span id="schedule-date">19년 08월 1일 10시</span>
+                <span id="schedule-money">2000원</span>
+            </div>
+            <div class="schedule">
+                <span id="schedule-name">코딩스터디</span>
+                <span id="schedule-date">19년 08월 2일 10시</span>
+                <span id="schedule-money">3000원</span>
+            </div>
+            <!-- 누르면 모달창 띄우기 -->
+            <div class="schedule-plus" data-toggle="modal" data-target="#exampleModalCenter">
+                <img id="plus" src="../static/img/plus.png" alt="">
+            </div>
+            <br>
+            <div class="account">
+                <div class="account-name">
+                    <span id="group-name">멋쟁이사자처럼</span>
+                    <!-- <span id="account-group">모임의</span> -->
+                    <span id="time-account">타임계좌</span>
+                    <br>
+                    <span id="account-money">210,000원</span>
+                </div>
+            </div>
+            <div class="account-content">
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+                <div class="member-content">
+                    <span id="member-date">07.28</span>
+                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
+                    <span id="member-money">3000원</span>
+                </div>
+            </div>
+        </div>
+        <!-- 하단 고정바 -->
+        <div class="foot-bar">
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- <textarea class="modal-title" id="exampleModalCenterTitle"
+                            style="resize: none; width:29rem; height:2rem" placeholder="약속 이름"></textarea>
+                        <textarea class="modal-title" id="exampleModalCenterTitle"
+                            style="resize: none; width:29rem; height:2rem" placeholder="약속 시간"></textarea>
+                        <textarea class="modal-title" id="exampleModalCenterTitle"
+                            style="resize: none; width:29rem; height:2rem" placeholder="지각비"></textarea> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">스케줄 추가하기</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+</html>

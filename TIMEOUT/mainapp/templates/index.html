@@ -1,2 +1,258 @@
-소개페이지입니당!!!!!!!!!!!!!!!!!!!!
-<a href='{% url "login" %}'>시작하기</a>
+<!DOCTYPE html>
+
+<head>
+    <title>타임아웃 소개페이지</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery 연결 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.fullpage/2.9.4/jquery.fullpage.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/jquery.fullpage/2.9.4/jquery.fullpage.min.css">
+    <!-- index.css 연결 -->
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <!-- 외부스크립트 연결 wow,animate -->
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <script type="text/javascript" src="../static/js/wow.min.js"></script>
+    <script>
+            new WOW().init(); 
+    </script>
+</head>
+
+<body>
+    <!-- html -->
+    <!-- navbar -->
+    <header id="top">
+        <div class="wrapper">
+            <h1>LOGO</h1>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#firstPage">소개</a></li>
+                    <li><a href="#secondPage">주기능</a></li>
+                    <li><a href="#3rdPage">부가기능</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- mainpage -->
+    <div id="fullpage">
+        <!-- first page -->
+        <div class="section">
+            <div class="first">
+                <div class="first-left">
+                    <div class="first-comment">
+                        <div class="wow fadeInLeftBig">
+                            <span>당신의<br></span>
+                        </div>
+                        <div class="wow fadeInLeftBig" data-wow-duration="1.5s">
+                            <span>소중한 약속_을<br></span>
+                        </div>
+                        <div class="wow fadeInLeftBig" data-wow-duration="2s">
+                            <span>지켜드립니다</span>
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="4s">
+                            <p id="light">모두의 5분이 모여 세상을 바꾼다!<br>5분 지킴이, 타임아웃</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="first-right">
+                </div>
+            </div>
+        </div>
+
+        <!-- second page -->
+        <div class="section">
+            <div class="second">
+                <div class="second-left">
+                    <div class="phone">
+                        <!-- 휴대폰 큰 틀 -->
+                        <img id="phone-img" src="../static/img/phone.png" alt="">
+                        <!-- 휴대폰 안에 내용 -->
+                        <img id="screen" name="screen" src="../static/img/내페이지(1).jpg">
+                    </div>
+                </div>
+                <div class="second-right">
+                    <div class="second-comment">
+                        <span>아으 일하기시러라</span>
+                    </div>
+                    <div class="button">
+                        <span class="button1" onclick="ChangeImage1()">내페이지</span>
+                        <span class="button2" onclick="ChangeImage2()">계좌내역</span>
+                        <span class="button3" onclick="ChangeImage3()">도착인증</span>
+                        <span class="button4" onclick="ChangeImage4()">미니게임</span>
+                        <br><br><br>
+                        <span id="button-text"> 설명을 하자꾸나 </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- third page -->
+        <div class="section">
+            <div class="third-left">
+            </div>
+            <div class="third-right">
+                <div class="third-comment">
+                    <span>프론트^0^</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- floatMenu -->
+    <div id="floatMenu">
+        <a href="{% url 'login' %}" id="" title="타임아웃 시작하기">
+            <div class="wow fadeInDown" data-wow-delay="1.5s">
+                <div class="wow swing" data-wow-delay="2.3s">
+                    <div class="banner"><br>
+                        <img id="time" src="../static/img/banner.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- script -->
+    <!-- scroll 부드럽게 -->
+    <script>
+        $(document).ready(function () {
+            $('#fullpage').fullpage({
+                sectionsColor: ['rgb(42 182 212)', 'rgb(42 182 212)', 'white'],
+                anchors: ['firstPage', 'secondPage', '3rdPage'],
+                menu: '#menu',
+                //equivalent to jQuery `easeOutBack` extracted from ezier(0.175, 0.885, 0.320, 1.275)http://matthewlein.com/ceaser/
+                easingcss3: 'cubic-bezier(0.0, 0.0, 0.58, 1.0)'
+            });
+            // menu에 있는 li를 누르면 각각에 맞는 페이지로 이동
+            $("#menu>li").click(function () {
+                $(this).addClass("act").siblings().removeClass("act");
+            });
+        });
+    </script>
+
+    <!-- banner 띄우기 -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var currentPosition = parseInt($("#floatMenu").css("top"));
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+                $("#floatMenu").stop().animate({
+                    "top": position + currentPosition + "px"
+                }, 1000);
+            });
+        });
+    </script>
+
+    <!-- 버튼누르면 사진바뀌는 스크립트 -->
+    <script type="text/javascript">
+        function ChangeImage1() {
+            document.screen.src = "../static/img/내페이지(1).jpg"
+        }
+
+        function ChangeImage2() {
+            document.screen.src = "../static/img/계좌내역(1).jpg"
+        }
+
+        function ChangeImage3() {
+            document.screen.src = "../static/img/도착시간인증(1).jpg"
+        }
+
+        function ChangeImage4() {
+            document.screen.src = "../static/img/미니게임(1).jpg"
+        }
+    </script>
+
+    <!-- 버튼누르면 텍스트 바뀌는 스크립트 -->
+    <script>
+        $(document).ready(function () {
+            $(".button1").click(function () {
+                $("#button-text").text("설명을 하자꾸나");
+            });
+        });
+        $(document).ready(function () {
+            $(".button2").click(function () {
+                $("#button-text").text("눈누난나");
+            });
+        });
+        $(document).ready(function () {
+            $(".button3").click(function () {
+                $("#button-text").text("고작 밑줄따위에");
+            });
+        });
+        $(document).ready(function () {
+            $(".button4").click(function () {
+                $("#button-text").text("2시간쓴거 실화냐");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".button1").click(function () {
+                $(".button1").css('border-bottom', '2px solid white')
+                $(".button2").css('border-bottom', '0px solid white')
+                $(".button3").css('border-bottom', '0px solid white')
+                $(".button4").css('border-bottom', '0px solid white')
+            });
+        });
+        $(document).ready(function () {
+            $(".button2").click(function () {
+                $(".button1").css('border-bottom', '0px solid white')
+                $(".button2").css('border-bottom', '2px solid white')
+                $(".button3").css('border-bottom', '0px solid white')
+                $(".button4").css('border-bottom', '0px solid white')
+            });
+        });
+        $(document).ready(function () {
+            $(".button3").click(function () {
+                $(".button1").css('border-bottom', '0px solid white')
+                $(".button2").css('border-bottom', '0px solid white')
+                $(".button3").css('border-bottom', '2px solid white')
+                $(".button4").css('border-bottom', '0px solid white')
+            });
+        });
+        $(document).ready(function () {
+            $(".button4").click(function () {
+                $(".button1").css('border-bottom', '0px solid white')
+                $(".button2").css('border-bottom', '0px solid white')
+                $(".button3").css('border-bottom', '0px solid white')
+                $(".button4").css('border-bottom', '2px solid white')
+            });
+        });
+    </script>
+
+    <!-- 크기조절 스크립트 -->
+    <!-- <script>
+    window.onload = function () {
+
+
+        $("#phone-img").height($(window).height());
+        $("#phone").width($(window).width());
+        $("#phone").height($(window).height());
+
+        var window_width = $(window).width() - $("#second-left").width();
+        var w = (window_width / 2);
+        $("#second-left").css("margin-left", w);
+
+    }
+
+    $(window).resize(function () {
+        $("#phone-img").height($(window).height());
+        $("#phone").width($(window).width());
+        $("#phone").height($(window).height());
+
+        var window_width = $(window).width() - $("#second-left").width();
+        var w = (window_width / 2);
+        $("#second-left").css("margin-left", w);
+    });
+</script> -->
+
+</body>
+
+</html>
