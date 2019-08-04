@@ -20,7 +20,7 @@ class User_history(models.Model):
 
 class Group_account(models.Model):
     title = models.CharField(max_length=100)
-    group_money = models.IntegerField()
+    group_money = models.IntegerField(blank=True, null = True)
     members = models.ManyToManyField(User_account)
 
     def __str__(self):

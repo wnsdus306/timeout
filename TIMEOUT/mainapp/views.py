@@ -19,7 +19,17 @@ def login(request):
     return render(request, 'login.html')
 
 def home(request):
-    return render(request, 'home.html')
+    user_group= []
+    groups = Group_account.objects.all()
+    #print(request.user.username)
+    for group in groups:
+        #print(group.title)
+        for member in group.members.all():
+            #print(member.name.username)
+            if member.name.username == request.user.username:
+                user_group.append(group)
+    #print(user_group)
+    return render(request, 'home.html',{'groups': user_group})
 
 def logout(request):
     auth.logout(request)
