@@ -20,3 +20,10 @@ def login(request):
 
 def home(request):
     return render(request, 'home.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/login')
+
+def group(request):
+    return render(request, 'group.html')

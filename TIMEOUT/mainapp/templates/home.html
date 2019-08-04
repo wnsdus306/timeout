@@ -1,7 +1,9 @@
+<a href="{% url 'logout' %}">로그아웃</a> <br>
+
 {{ user.last_name}}{{ user.first_name }} 님이 로그인 중 <br                                                        >
 
 홈 화면입니다.
-
+<a href="{% url 'group' %}">그룹페이지넘어가기</a> <br>
 {% for check in g.members.all%}
     {{check.name.username}}
 {% endfor %}

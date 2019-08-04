@@ -23,5 +23,7 @@ urlpatterns = [
     path('login/', mainapp.views.login, name='login'),
     path('accounts/', include('allauth.urls')),
     path('home/', mainapp.views.home, name='home'),
+    path('logout/', mainapp.views.logout, name='logout'),
+    path('group/',mainapp.views.group, name='group'),
 ]
 
