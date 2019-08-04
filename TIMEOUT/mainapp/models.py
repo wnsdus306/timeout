@@ -6,7 +6,7 @@ class User_account(models.Model):
     name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     user_money = models.IntegerField()
     def __str__(self):
-        return self.user.username
+        return self.name.username
 
 
 class User_history(models.Model):
