@@ -5,8 +5,10 @@ from django.contrib.auth.models import User
 class User_account(models.Model):
     name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     user_money = models.IntegerField()
-    def __str__(self):
-        return self.name.username
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    nickname = models.CharField(max_length=100, null=True, blank=True)
+    def __str__(self):  
+        return self.nickname
 
 
 class User_history(models.Model):
