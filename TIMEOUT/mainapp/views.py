@@ -25,6 +25,7 @@ def portfolio(request):
         us.name = request.user
         us.user_money = 0
         us.nickname = request.POST['nickname']
+        us.image = request.FILES['image']
         us.save()
         return redirect('/home')
     else:
