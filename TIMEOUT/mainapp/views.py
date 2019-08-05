@@ -4,8 +4,6 @@ from django.contrib import auth
 from .models import Group_account,User_account,User_history,Schedule
 from django.conf import settings
 
-# Create your views here.
-
 def index(request):
     #g = get_object_or_404(Group_account, pk=1)
 
@@ -70,3 +68,11 @@ def group(request,group_id):
     sche= Schedule.objects.filter(group_ac = group)
 
     return render(request, 'group.html',{'group' : group, 'schedules': sche})
+
+def newSchedule(request,group_id): 
+    return render(request, 'newSche.html')
+
+def create(request):
+    schedule = Schedule()
+
+    return redirect('/group/'+str(group.id))
