@@ -19,6 +19,8 @@ def login(request):
     return render(request, 'login.html')
 
 def portfolio(request):
+    users = User_account.objects.all()
+    
     # 만약 Method가 POst면
     if request.method == 'POST':
         us = User_account()
@@ -29,10 +31,11 @@ def portfolio(request):
         us.save()
         return redirect('/home')
     else:
-        if request.user.username:
-            return redirect('/home')
-        else:
-            return render(request, 'portfolio.html')
+        for user in users:
+            if user.name.username == request.user.username:
+                return redirect('/home')
+                break
+        return render(request, 'portfolio.html')
 
 def home(request):
     users = User_account.objects.all()

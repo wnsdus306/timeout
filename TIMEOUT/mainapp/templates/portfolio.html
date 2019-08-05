@@ -1,8 +1,8 @@
 {{user.last_name}}{{user.first_name}}님 안녕하세요<br>
 닉네임을 입력하세요.
-<form method='POST' action="{% url 'portfolio' %}">
+<form method='POST' action="{% url 'portfolio' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="text" name='nickname'><br>
-    <input type="file" name="image" id="image"><br>
+    <input type = 'file' name='image' id='image'><br>
     <input type="submit" value="계좌생성"><br>
 </form>
