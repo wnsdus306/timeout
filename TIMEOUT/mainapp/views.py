@@ -65,6 +65,6 @@ def logout(request):
 
 def group(request,group_id):
     group = get_object_or_404(Group_account, pk=group_id)
-    for member in group.members.all():
-        print(member.nickname)
-    return render(request, 'group.html',{'group' : group})
+    sche= Schedule.objects.filter(group_ac = group)
+
+    return render(request, 'group.html',{'group' : group, 'schedules': sche})

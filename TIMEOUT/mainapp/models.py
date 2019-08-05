@@ -31,10 +31,10 @@ class Group_account(models.Model):
 
 class Schedule(models.Model):
     group_ac = models.ForeignKey(Group_account, on_delete= models.CASCADE, null =True)
-    title = models.CharField(max_length=100)
-    date = models.DateTimeField('date published')
-    penalty = models.IntegerField()
-    location = models.CharField(max_length=100, null=True)
+    title = models.CharField(max_length=100,null = True, blank=True)
+    date = models.DateTimeField('date published',null=True, blank=True)
+    penalty = models.IntegerField(null= True, blank=True)
+    location = models.CharField(max_length=100, null=True,blank=True)
 
     def __str__(self):
         return self.title
