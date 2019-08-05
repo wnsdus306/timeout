@@ -40,13 +40,12 @@
                 <a href=""><img id="icon2" src="../static/img/pencil.png" alt=""></a>
             </div>
             <div class="group-thumbnail">
-                <span id="name">멋쟁이사자처럼</span>
+                <span id="name">{{group.title}}</span>
                 <!-- <span id="group">&nbsp모임</span> -->
                 <br><br>
-                <img id="thumbnail" src="../static/img/노아.png" alt="">
-                <img id="thumbnail" src="../static/img/썸네일.jpg" alt="">
-                <img id="thumbnail" src="../static/img/꼬맹이 (2).jpg" alt="">
-                <img id="thumbnail" src="../static/img/jgy.jpg" alt="">
+                {% for member in group.members.all%}
+                <img id="thumbnail" src="{{member.image.url}}" alt="">
+                {% endfor %}
             </div>
             <div class="schedule">
                 <span id="schedule-name">토익스터디</span>

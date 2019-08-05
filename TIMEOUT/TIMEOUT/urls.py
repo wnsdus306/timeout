@@ -27,6 +27,6 @@ urlpatterns = [
     path('portfolio/', mainapp.views.portfolio, name='portfolio'),
     path('home/', mainapp.views.home, name='home'),
     path('logout/', mainapp.views.logout, name='logout'),
-    path('group/',mainapp.views.group, name='group'),
+    path('group/<int:group_id>',mainapp.views.group, name='group'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -47,7 +47,7 @@ def home(request):
         if user.name.username == request.user.username:
             us = User_account.objects.get(name = request.user)
             break
-      
+
     #print(request.user.username)
     for group in groups:
         #print(group.title)
@@ -63,5 +63,8 @@ def logout(request):
     auth.logout(request)
     return redirect('/login')
 
-def group(request):
-    return render(request, 'group.html')
+def group(request,group_id):
+    group = get_object_or_404(Group_account, pk=group_id)
+    for member in group.members.all():
+        print(member.nickname)
+    return render(request, 'group.html',{'group' : group})

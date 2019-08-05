@@ -37,7 +37,7 @@
             {% for group in groups%}
                 <div class="group">
                     <p id="name" style="color:white;">{{group.title}}의 타임계좌</p>
-                    <a class="hovergroup" href="{% url 'group' %}" style="color:red;">
+                    <a class="hovergroup" href="{% url 'group' group.id %}" style="color:red;">
                     
                     <h1 id="money" style="color:white;">{{group.group_money}}원</h1></a>
                     <div class="division">
