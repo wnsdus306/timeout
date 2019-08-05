@@ -24,6 +24,7 @@ urlpatterns = [
     path('', mainapp.views.index, name='index'),
     path('login/', mainapp.views.login, name='login'),
     path('accounts/', include('allauth.urls')),
+    path('portfolio/', mainapp.views.portfolio, name='portfolio'),
     path('home/', mainapp.views.home, name='home'),
     path('logout/', mainapp.views.logout, name='logout'),
     path('group/',mainapp.views.group, name='group'),

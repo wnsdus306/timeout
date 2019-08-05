@@ -18,28 +18,32 @@ def login(request):
     auth.logout(request)
     return render(request, 'login.html')
 
+def portfolio(request):
+    # 만약 Method가 POst면
+    if request.method == 'POST':
+        us = User_account()
+        us.name = request.user
+        us.user_money = 0
+        us.nickname = request.POST['nickname']
+        us.save()
+        return redirect('/home')
+    else:
+        if request.user.username:
+            return redirect('/home')
+        else:
+            return render(request, 'portfolio.html')
+
 def home(request):
     users = User_account.objects.all()
     groups = Group_account.objects.all()
-    cnt_user = 0 
-    cnt_list = []
     us = User_account()
     user_group= []
     
     for user in users:
-        cnt_list.append(user)
         if user.name.username == request.user.username:
             us = User_account.objects.get(name = request.user)
             break
-        else:
-            cnt_user += 1
-            
-    if cnt_user == len(cnt_list):
-        us.name = request.user
-        us.user_money = 0
-        us.save()
-
-    
+      
     #print(request.user.username)
     for group in groups:
         #print(group.title)
@@ -49,6 +53,7 @@ def home(request):
                 user_group.append(group)
     #print(user_group)
     return render(request, 'home.html',{'groups': user_group,'us':us})
+
 
 def logout(request):
     auth.logout(request)

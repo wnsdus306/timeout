@@ -7,7 +7,8 @@ class User_account(models.Model):
     user_money = models.IntegerField()
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     nickname = models.CharField(max_length=100, null=True, blank=True)
-    def __str__(self):  
+
+    def __str__(self):
         return self.nickname
 
 
@@ -21,7 +22,7 @@ class User_history(models.Model):
 
 
 class Group_account(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, null=True, blank=True)
     group_money = models.IntegerField(blank=True, null = True)
     members = models.ManyToManyField(User_account)
 

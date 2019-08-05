@@ -1,0 +1,7 @@
+{{user.last_name}}{{user.first_name}}님 안녕하세요<br>
+닉네임을 입력하세요.
+<form method='POST' action="{% url 'portfolio' %}">
+    {% csrf_token %}
+    <input type="text" name='nickname'><br>
+    <input type="submit" value="계좌생성">
+</form>
