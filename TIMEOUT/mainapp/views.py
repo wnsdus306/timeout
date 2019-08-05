@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Group_account,User_account,User_history,Schedule
+from django.conf import settings
 
 # Create your views here.
 
@@ -27,7 +28,8 @@ def portfolio(request):
         us.name = request.user
         us.user_money = 0
         us.nickname = request.POST['nickname']
-        us.image = request.FILES['image']
+        if us.image:
+            us.image = request.FILES['image']
         us.save()
         return redirect('/home')
     else:
@@ -47,7 +49,7 @@ def home(request):
         if user.name.username == request.user.username:
             us = User_account.objects.get(name = request.user)
             break
-      
+
     #print(request.user.username)
     for group in groups:
         #print(group.title)
@@ -63,5 +65,8 @@ def logout(request):
     auth.logout(request)
     return redirect('/login')
 
-def group(request):
-    return render(request, 'group.html')
+def group(request,group_id):
+    group = get_object_or_404(Group_account, pk=group_id)
+    sche= Schedule.objects.filter(group_ac = group)
+
+    return render(request, 'group.html',{'group' : group, 'schedules': sche})

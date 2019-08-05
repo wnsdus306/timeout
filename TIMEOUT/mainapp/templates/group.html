@@ -16,13 +16,13 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
 </head>
 
 <body>
@@ -35,24 +35,24 @@
                 <a href=""><img id="icon2" src="../static/img/pencil.png" alt=""></a>
             </div>
             <div class="group-thumbnail">
-                <span id="name">멋쟁이사자처럼</span>
+                <span id="name">{{group.title}}</span>
                 <!-- <span id="group">&nbsp모임</span> -->
                 <br><br>
-                <img id="thumbnail" src="../static/img/노아.png" alt="">
-                <img id="thumbnail" src="../static/img/썸네일.jpg" alt="">
-                <img id="thumbnail" src="../static/img/꼬맹이 (2).jpg" alt="">
-                <img id="thumbnail" src="../static/img/jgy.jpg" alt="">
+                {% for member in group.members.all%}
+                {% if not member.image%}
+                <img id="thumbnail" src="../static/img/basic.png" alt="">
+                {% else %}
+                <img id="thumbnail" src="{{member.image.url}}" alt="">
+                {% endif %}
+                {% endfor %}
             </div>
+            {% for s in schedules.all %}
             <div class="schedule">
-                <span id="schedule-name">토익스터디</span>
-                <span id="schedule-date">19년 08월 1일 10시</span>
-                <span id="schedule-money">2000원</span>
+                <span id="schedule-name">{{s.title}}</span>
+                <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일</span>
+                <span id="schedule-money">{{s.penalty}}원</span>
             </div>
-            <div class="schedule">
-                <span id="schedule-name">코딩스터디</span>
-                <span id="schedule-date">19년 08월 2일 10시</span>
-                <span id="schedule-money">3000원</span>
-            </div>
+            {% endfor %}
             <!-- 누르면 모달창 띄우기 -->
             <div class="schedule-plus" data-toggle="modal" data-target="#exampleModalCenter">
                 <img id="plus" src="../static/img/plus.png" alt="">
@@ -60,11 +60,11 @@
             <br>
             <div class="account">
                 <div class="account-name">
-                    <span id="group-name">멋쟁이사자처럼</span>
+                    <span id="group-name">{{group.title}}</span>
                     <!-- <span id="account-group">모임의</span> -->
                     <span id="time-account">타임계좌</span>
                     <br>
-                    <span id="account-money">210,000원</span>
+                    <span id="account-money">{{group.group_money}}원</span>
                 </div>
             </div>
             <div class="account-content">
@@ -121,12 +121,12 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <!-- <textarea class="modal-title" id="exampleModalCenterTitle"
+                        <textarea class="modal-title" id="exampleModalCenterTitle"
                             style="resize: none; width:29rem; height:2rem" placeholder="약속 이름"></textarea>
                         <textarea class="modal-title" id="exampleModalCenterTitle"
                             style="resize: none; width:29rem; height:2rem" placeholder="약속 시간"></textarea>
                         <textarea class="modal-title" id="exampleModalCenterTitle"
-                            style="resize: none; width:29rem; height:2rem" placeholder="지각비"></textarea> -->
+                            style="resize: none; width:29rem; height:2rem" placeholder="지각비"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary">스케줄 추가하기</button>
