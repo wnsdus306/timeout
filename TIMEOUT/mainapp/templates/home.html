@@ -17,7 +17,11 @@
     <!--계정-->
     <div class="top">
         <p id="hi">안녕하세요,<br><span id="bold">{{us.nickname}}</span>님</p>
+        {% if not us.image %}
+        <img id="round" src="../static/img/basic.png" alt="">
+        {% else %}
         <img id="round" src="{{us.image.url}}" alt="">
+        {% endif %}
     </div>
     <!--계좌 리스트-->
     <div class="middle">
