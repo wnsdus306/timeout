@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Group_account,User_account,User_history,Schedule
+from django.conf import settings
 
 # Create your views here.
 
@@ -27,7 +28,8 @@ def portfolio(request):
         us.name = request.user
         us.user_money = 0
         us.nickname = request.POST['nickname']
-        us.image = request.FILES['image']
+        if us.image:
+            us.image = request.FILES['image']
         us.save()
         return redirect('/home')
     else:
