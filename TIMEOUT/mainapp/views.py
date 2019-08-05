@@ -70,3 +70,6 @@ def group(request,group_id):
     sche= Schedule.objects.filter(group_ac = group)
 
     return render(request, 'group.html',{'group' : group, 'schedules': sche})
+
+def map(request):
+    return render(request,'map.html')

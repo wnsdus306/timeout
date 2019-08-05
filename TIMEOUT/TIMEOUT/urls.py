@@ -28,5 +28,6 @@ urlpatterns = [
     path('home/', mainapp.views.home, name='home'),
     path('logout/', mainapp.views.logout, name='logout'),
     path('group/<int:group_id>',mainapp.views.group, name='group'),
+    path('map/', mainapp.views.map, name='map')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
