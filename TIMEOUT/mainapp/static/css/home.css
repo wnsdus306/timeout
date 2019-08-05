@@ -1,4 +1,63 @@
 @media screen and (min-width:550px){
+/* 슬라이드 바 */
+html.open {
+overflow: hidden;
+}
+
+.btn {
+position: absolute;
+z-index: 1;
+cursor: pointer;
+}
+
+.close {
+width: 50px;
+height: 50px;
+position: absolute;
+left: 0px;
+top: 0px;
+background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+background-size: 50%;
+background-repeat: no-repeat;
+background-position: center;
+cursor: pointer;
+}
+
+#menu {
+width: 28rem;
+height: 100%;
+position: fixed;
+top: 0px;
+left: -29rem;
+z-index: 10;
+border: 1px solid #c9c9c9;
+background-color: white;
+text-align: center;
+transition: All 0.2s ease;
+-webkit-transition: All 0.2s ease;
+-moz-transition: All 0.2s ease;
+-o-transition: All 0.2s ease;
+}
+
+#menu.open {
+left: 0px;
+}
+
+.page_cover.open {
+display: block;
+}
+
+.page_cover {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0px;
+right: 0px;
+background-color: rgba(0, 0, 0, 0.3);
+z-index: 4;
+display: none;
+}
+
 /* 상단 고정바 */
 .head-bar{
     height: 3.7rem;
@@ -353,6 +412,65 @@
 }
 
 @media screen and (max-width:500px){
+/* 슬라이드 바 */
+html.open {
+overflow: hidden;
+}
+
+.btn {
+position: absolute;
+z-index: 1;
+cursor: pointer;
+}
+
+.close {
+width: 50px;
+height: 50px;
+position: absolute;
+left: 0px;
+top: 0px;
+background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+background-size: 50%;
+background-repeat: no-repeat;
+background-position: center;
+cursor: pointer;
+}
+
+#menu {
+width: 28rem;
+height: 100%;
+position: fixed;
+top: 0px;
+left: -29rem;
+z-index: 10;
+border: 1px solid #c9c9c9;
+background-color: white;
+text-align: center;
+transition: All 0.2s ease;
+-webkit-transition: All 0.2s ease;
+-moz-transition: All 0.2s ease;
+-o-transition: All 0.2s ease;
+}
+
+#menu.open {
+left: 0px;
+}
+
+.page_cover.open {
+display: block;
+}
+
+.page_cover {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0px;
+right: 0px;
+background-color: rgba(0, 0, 0, 0.3);
+z-index: 4;
+display: none;
+}
+
     /* 상단 고정바 */
 .head-bar{
     height: 3.7rem;
@@ -618,6 +736,67 @@
 }
 
 @media screen and (max-width:500px){
+
+/* 슬라이드 바 */
+
+html.open {
+    overflow: hidden;
+    }
+    
+    .btn {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    }
+    
+    .close {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    }
+    
+    #menu {
+    width: 28rem;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: -29rem;
+    z-index: 10;
+    border: 1px solid #c9c9c9;
+    background-color: white;
+    text-align: center;
+    transition: All 0.2s ease;
+    -webkit-transition: All 0.2s ease;
+    -moz-transition: All 0.2s ease;
+    -o-transition: All 0.2s ease;
+    }
+    
+    #menu.open {
+    left: 0px;
+    }
+    
+    .page_cover.open {
+    display: block;
+    }
+    
+    .page_cover {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    display: none;
+    }
+    
     /* 상단 고정바 */
 .head-bar{
     height: 3.7rem;
