@@ -1,28 +1,23 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Group_account,User_account,User_history,Schedule
+from .models import Group_account,User_account,User_history,Schedule, Invite
 from django.conf import settings
 
 # Create your views here.
 
 def index(request):
-    #g = get_object_or_404(Group_account, pk=1)
-
-    #for check in g.members.all() :
-    #    print(check.name.username)
-    #    print(check.user_money)
-    
     return render(request, 'index.html')
+
 
 def login(request):
     auth.logout(request)
     return render(request, 'login.html')
 
+
 def portfolio(request):
     users = User_account.objects.all()
-    
-    # 만약 Method가 POst면
+
     if request.method == 'POST':
         us = User_account()
         us.name = request.user
@@ -39,6 +34,7 @@ def portfolio(request):
                 break
         return render(request, 'portfolio.html')
 
+
 def home(request):
     users = User_account.objects.all()
     groups = Group_account.objects.all()
@@ -50,23 +46,89 @@ def home(request):
             us = User_account.objects.get(name = request.user)
             break
 
-    #print(request.user.username)
     for group in groups:
-        #print(group.title)
         for member in group.members.all():
-            #print(member.name.username)
             if member.name.username == request.user.username:
                 user_group.append(group)
-    #print(user_group)
+
     return render(request, 'home.html',{'groups': user_group,'us':us})
+
+    
+def invite(request):
+    users = User_account.objects.all()
+    us = User_account.objects.get(name = request.user)
+    group = Group_account()
+
+    if request.method == 'POST':
+        group.title = request.POST['gr']
+        group.save()
+        group.members.add(us)
+        group.save()
+        for i in range(3):
+            invi = 'invite' + str(i+1)
+            invitation = Invite()
+            invitation.title = request.POST['gr']
+            invitation.send = us.nickname
+            invitation.receive = request.POST[invi]
+            invitation.save()
+        return redirect('/home')
+
+    else:
+        return render(request, 'invite.html')
 
 
 def logout(request):
     auth.logout(request)
     return redirect('/login')
 
+
 def group(request,group_id):
     group = get_object_or_404(Group_account, pk=group_id)
     sche= Schedule.objects.filter(group_ac = group)
 
     return render(request, 'group.html',{'group' : group, 'schedules': sche})
+
+
+def check(request):
+    invitations = Invite.objects.all()
+    us = User_account.objects.get(name = request.user)
+    invi_us = Invite()
+
+    for invi in invitations:
+        if invi.receive == us.nickname:
+            invi_us = Invite.objects.get(receive = us.nickname)
+            break
+            # return render(request, 'check.html', {'invi_us':invi_us})
+            # break
+    return render(request, 'check.html', {'invi_us':invi_us})
+    # return redirect('/home')
+
+
+def yes(request):
+    us = User_account.objects.get(name = request.user)
+    invi_us = Invite.objects.get(receive = us.nickname)
+    invi_us.check = True
+    invi_us.save()
+    group = Group_account.objects.get(title = invi_us.title)
+    group.title = invi_us.title
+    group.save()
+    group.members.add(us)
+    group.save()
+    invi_us.delete()
+    
+    return redirect('/home')
+
+
+def no(request):
+    us = User_account.objects.get(name = request.user)
+    invi_us = Invite.objects.get(receive = us.nickname)
+    invi_us.check = False
+    invi_us.save()
+
+    return redirect('/home')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/login')
+
