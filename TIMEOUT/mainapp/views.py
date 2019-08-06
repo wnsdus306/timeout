@@ -4,8 +4,6 @@ from django.contrib import auth
 from .models import Group_account,User_account,User_history,Schedule, Invite
 from django.conf import settings
 
-# Create your views here.
-
 def index(request):
     return render(request, 'index.html')
 
@@ -87,6 +85,20 @@ def group(request,group_id):
     sche= Schedule.objects.filter(group_ac = group)
 
     return render(request, 'group.html',{'group' : group, 'schedules': sche})
+
+
+def newSchedule(request,group_id): 
+    group = get_object_or_404(Group_account,pk=group_id)
+    return render(request, 'newSche.html',{'group' : group})
+
+def create(request,group_id):
+    schedule = Schedule()
+    schedule.group_ac = get_object_or_404(Group_account, pk = group_id)
+    schedule.title = request.GET['title']
+    schedule.penalty = request.GET['penalty']
+    schedule.date = request.GET['date']+" "+request.GET['time']
+    schedule.save()
+    return redirect('/group/'+str(schedule.group_ac.id))
 
 
 def check(request):
