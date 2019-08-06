@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- jQuery 연결 -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="../static/css/home.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -58,15 +61,16 @@
                 </div>
             {% endfor %}
             <div class="group-plus">
-                <div class="group-plus-plus">
+                <a href="{% url 'invite' %}"><div class="group-plus-plus">
                     <img src="../static/img/group-plus-white.png">
                 </div>
+                </a>    
             </div>  
         </div>
     </div>
     <!--약속 리스트-->
     <div class="bottom">
-        <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
+        <p id="schedule-list" style="color:black;">지켜야 할 약속             <a href = "{% url 'check' %}">초대장</a></p>
         <div class="schedule">
             <span id="schedule-name">토익스터디</span>
             <span id="schedule-date">19년 08월 1일 10시</span>

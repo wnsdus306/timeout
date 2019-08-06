@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class User_account(models.Model):
     name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    user_money = models.IntegerField()
+    user_money = models.IntegerField(default=0)
     image = models.ImageField(upload_to='images/',default='', null=True, blank=True)
     nickname = models.CharField(max_length=100, null=True, blank=True)
 
@@ -23,7 +23,7 @@ class User_history(models.Model):
 
 class Group_account(models.Model):
     title = models.CharField(max_length=100, null=True, blank=True)
-    group_money = models.IntegerField(blank=True, null = True)
+    group_money = models.IntegerField(default=0)
     members = models.ManyToManyField(User_account)
 
     def __str__(self):
@@ -39,3 +39,12 @@ class Schedule(models.Model):
     def __str__(self):
         return self.title
         
+
+class Invite(models.Model):
+    title = models.CharField(max_length=100, null=True, blank=True)
+    send = models.CharField(max_length=100)
+    check = models.BooleanField(null=True, blank=True)
+    receive = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.send
