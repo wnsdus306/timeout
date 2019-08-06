@@ -32,14 +32,14 @@
                     {% csrf_token %}
                     <!-- 프로필 이미지 -->
                     <div class="profile_img">
-                        <input type=file name='file1' style='display: none;'>
+                        <input type=file id="files" accept=".gif, .jpg, .png" name='image' style='display: none;'>
                         <input type='text' name='file2' id='file2' style='display: none;'> 
                         <img id="profile" src="../static/img/basic_profile.png"
-                            onclick='document.all.file1.click(); 
-                            document.all.file2.value = document.all.file1.value'>
+                            onclick='document.all.image.click(); 
+                            document.all.file2.value = document.all.image.value'>
                         <img id="camera" src="../static/img/camera.png"
-                            onclick='document.all.file1.click(); 
-                            document.all.file2.value = document.all.file1.value'>
+                            onclick='document.all.image.click(); 
+                            document.all.file2.value = document.all.image.value'>
                     </div>
 
                     <!-- 닉네임 및 계좌생성 -->
@@ -63,24 +63,23 @@
         </div>
     </div>
 
+    <!-- 여기서 부터 스크립트 -->
+    <!-- 버튼누르면 프로필 사진 바뀌는 기능 -->
     <script>
-    function readURL(input) {
-    if (input.files && input.files[0]) {
-    var reader = new FileReader();
+        document.getElementById("files").onchange = function () {
+        var reader = new FileReader();
 
-    reader.onload = function (e) {
-    $('#image_section').attr('src', e.target.result);
-    }
+        reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("profile").src = e.target.result;
+        };
 
-    reader.readAsDataURL(input.files[0]);
-    }
-    }
-
-    $("#imgInput").change(function(){
-    readURL(this);
-    });
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+        };
     </script>
 
+    <!-- 계좌생성 버튼 -->
     <script>
         $(document).ready(function () {
         var formInputs = $('input[type="name"],input[type="nickname"]');
