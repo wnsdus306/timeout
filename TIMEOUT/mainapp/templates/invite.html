@@ -2,11 +2,20 @@
 친구 초대 <br>
 <form method='POST' action='{% url "invite" %}'>
     {% csrf_token %}
-    그룹명 : <br>
-    <input type='text' name='gr'><br>
-    닉네임 : <br>
-    <input type='text' name='invite1'><br>
-    <input type='text' name='invite2'><br>
-    <input type='text' name='invite3'><br>
-    <input type='submit' value='초대하기'><br>
+    그룹명 : <input type='text' name='gr' value= {{group.title}}>(그룹명은 처음 입력한후 바꾸지 마세용)<br>
+    닉네임 : <input type='text' name=invite>
+    <input type='submit' value='확인'><br>
 </form>
+
+
+{% for user in us_f_list%}
+{% if not user.image%}
+<img id="thumbnail" src="../static/img/basic.png" alt="" width=80, height=80>
+{% else %}
+<img id="thumbnail" src="{{user.image.url}}" alt="" width=80, height=80>
+{% endif %}
+{{user.nickname}}
+{% endfor %}
+
+
+
