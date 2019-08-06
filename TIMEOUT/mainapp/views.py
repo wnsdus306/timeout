@@ -100,7 +100,7 @@ def check(request):
             break
             # return render(request, 'check.html', {'invi_us':invi_us})
             # break
-    return render(request, 'check.html', {'invi_us':invi_us})
+    return render(request, 'check.html', {'invi_us':invi_us,'us':us})
     # return redirect('/home')
 
 
@@ -132,3 +132,5 @@ def logout(request):
     auth.logout(request)
     return redirect('/login')
 
+def map(request):
+    return render(request, 'map.html')
