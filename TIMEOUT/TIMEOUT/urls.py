@@ -32,6 +32,8 @@ urlpatterns = [
     path('home/', mainapp.views.home, name='home'),
     path('logout/', mainapp.views.logout, name='logout'),
     path('group/<int:group_id>',mainapp.views.group, name='group'),
-    path('map/', mainapp.views.map, name='map')
+    path('group/<int:group_id>/new',mainapp.views.newSchedule, name='newSche'),
+    path('group/<int:group_id>/create', mainapp.views.create , name='create'),
+    path('map/', mainapp.views.map, name='map'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

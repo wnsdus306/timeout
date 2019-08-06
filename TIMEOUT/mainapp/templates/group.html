@@ -44,6 +44,7 @@
                 {% else %}
                 <img id="thumbnail" src="{{member.image.url}}" alt="">
                 {% endif %}
+                {{member.nickname}}
                 {% endfor %}
             </div>
             {% for s in schedules.all %}
@@ -54,8 +55,10 @@
             </div>
             {% endfor %}
             <!-- 누르면 모달창 띄우기 -->
-            <div class="schedule-plus" data-toggle="modal" data-target="#exampleModalCenter">
-                <img id="plus" src="../static/img/plus.png" alt="">
+            <div class="schedule-plus">
+                <a href="{% url 'newSche' group.id %}">
+                    <img id="plus" src="../static/img/plus.png" alt="">
+                </a>
             </div>
             <br>
             <div class="account">
