@@ -146,3 +146,6 @@ def logout(request):
 
 def map(request):
     return render(request, 'map.html')
+
+def confirm(request):
+    return redirect('/home')
