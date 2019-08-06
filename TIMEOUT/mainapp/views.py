@@ -88,12 +88,17 @@ def group(request,group_id):
 
 
 def newSchedule(request,group_id): 
-    return render(request, 'newSche.html')
+    group = get_object_or_404(Group_account,pk=group_id)
+    return render(request, 'newSche.html',{'group' : group})
 
-def create(request):
+def create(request,group_id):
     schedule = Schedule()
-
-    return redirect('/group/'+str(group.id))
+    schedule.group_ac = get_object_or_404(Group_account, pk = group_id)
+    schedule.title = request.GET['title']
+    schedule.penalty = request.GET['penalty']
+    schedule.date = request.GET['date']+" "+request.GET['time']
+    schedule.save()
+    return redirect('/group/'+str(schedule.group_ac.id))
 
 
 def check(request):
@@ -107,7 +112,7 @@ def check(request):
             break
             # return render(request, 'check.html', {'invi_us':invi_us})
             # break
-    return render(request, 'check.html', {'invi_us':invi_us})
+    return render(request, 'check.html', {'invi_us':invi_us,'us':us})
     # return redirect('/home')
 
 

@@ -44,6 +44,7 @@
                 {% else %}
                 <img id="thumbnail" src="{{member.image.url}}" alt="">
                 {% endif %}
+                {{member.nickname}}
                 {% endfor %}
             </div>
             {% for s in schedules.all %}
