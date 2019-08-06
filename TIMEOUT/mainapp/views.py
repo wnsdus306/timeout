@@ -62,6 +62,7 @@ def invite(request):
     us_f_list = []
     cnt = 0
     cnt_list =[]
+    check = 0
 
     if request.method == 'POST':
 
@@ -78,12 +79,21 @@ def invite(request):
         else:
             group = Group_account.objects.get(title=request.POST['gr'])
 
+        
         invitation.title = request.POST['gr']
         invitation.send = us.nickname
         invitation.receive = request.POST['invite']
         invitation.save()
+
+        for i in invitations:
+            if i.receive == request.POST['invite'] and i.send == us.nickname and i.title == request.POST['gr']:
+                check+=1
+                if check != 1:
+                    i.delete()
+       
+        invitations_i = Invite.objects.all()
         
-        for iv in invitations:
+        for iv in invitations_i:
             if iv.title == request.POST['gr']: # 초대장의 title과 검색한 title이 같으면
                 us_f = User_account.objects.get(nickname = iv.receive)
                 us_f_list.append(us_f)
