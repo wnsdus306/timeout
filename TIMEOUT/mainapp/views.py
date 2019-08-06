@@ -144,3 +144,5 @@ def logout(request):
     auth.logout(request)
     return redirect('/login')
 
+def map(request):
+    return render(request, 'map.html')
