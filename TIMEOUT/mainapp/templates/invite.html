@@ -1,0 +1,12 @@
+
+친구 초대 <br>
+<form method='POST' action='{% url "invite" %}'>
+    {% csrf_token %}
+    그룹명 : <br>
+    <input type='text' name='gr'><br>
+    닉네임 : <br>
+    <input type='text' name='invite1'><br>
+    <input type='text' name='invite2'><br>
+    <input type='text' name='invite3'><br>
+    <input type='submit' value='초대하기'><br>
+</form>

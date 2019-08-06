@@ -25,8 +25,13 @@ urlpatterns = [
     path('login/', mainapp.views.login, name='login'),
     path('accounts/', include('allauth.urls')),
     path('portfolio/', mainapp.views.portfolio, name='portfolio'),
+    path('check/', mainapp.views.check, name='check'),
+    path('invite/', mainapp.views.invite, name='invite'),
+    path('yes/', mainapp.views.yes, name='yes'),
+    path('no/', mainapp.views.no, name='no'),
     path('home/', mainapp.views.home, name='home'),
     path('logout/', mainapp.views.logout, name='logout'),
     path('group/<int:group_id>',mainapp.views.group, name='group'),
+    path('map/', mainapp.views.map, name='map')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,0 +1,7 @@
+{% if invi_us.receive %}
+{{invi_us.send}}님이 {{invi_us.title}} 에 초대하였습니다.<br>
+<a href='{% url "yes" %}'>수락</a><br>
+<a href='{% url "no" %}'>거절</a><br>
+{% else %}
+받은 초대장이 없습니당ㅇㅇ
+{% endif %}
