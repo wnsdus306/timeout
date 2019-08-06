@@ -1,23 +1,102 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <!-- jQuery 연결 -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>간단한 지도 표시하기</title>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=sg8d9f406i"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=sg8d9f406i">
+    </script>
+    <link rel="stylesheet" type="text/css" href="../static/css/map.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<div id="map" style="width:50%;height:400px;"></div>
+    <!-- 페이지 -->
+    <div class="center">
+        <div class="page">
+            <!--고정 상단바-->
+            <div class="head-bar">
+                <a href="./"><img id="icon1" src="../static/img/list.png" alt=""></a>
+                <a href="./index.html"><img id="logo" src="../static/img//로고화이트.png" alt=""></a>
+                <a href="./"><img id="icon2" src="../static/img/bell.png" alt=""></a>
+            </div>
 
-<script>
-var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 10
-};
+            <!-- 지도인증 부분 -->
+            <div class="arrive">
+                <div class="map">
+                    <span id="reach">타임인증하기</span>
+                    <div id="map"></div>
+                    <!-- style="width:50%;height:400px; -->
+                </div>
+                <div class="map-bottom">
+                    <div class="arrive-content">
+                        <span id="group-name">타임그룹 : "멋쟁이사자처럼"</span>
+                        <div class="group-img">
+                            <!-- <img id="member-img" src="../static/img/계정이미지.jpg"> -->
+                        </div>
+                        <span id="schedule">약속내용 : 조모임 18시</span>
+                    </div>
+                    <div class="arrive-button">
+                        <button type="button" class="btn btn-danger" id="timeout">인증하기</button>
+                    </div>
+                </div>
 
-var map = new naver.maps.Map('map', mapOptions);
-</script>
+            </div>
+
+            <!-- 약속 순서대로 정렬 -->
+            <!-- <div class="bottom">
+                <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
+                <div class="schedule">
+                    <span id="schedule-name">토익스터디</span>
+                    <span id="schedule-date">19년 08월 1일 10시</span>
+                    <span id="schedule-money">2000원</span>
+                </div>
+                <div class="schedule">
+                        <span id="schedule-name">토익스터디</span>
+                        <span id="schedule-date">19년 08월 1일 10시</span>
+                        <span id="schedule-money">2000원</span>
+                    </div>
+                    <div class="schedule">
+                            <span id="schedule-name">토익스터디</span>
+                            <span id="schedule-date">19년 08월 1일 10시</span>
+                            <span id="schedule-money">2000원</span>
+                        </div>
+                        <div class="schedule">
+                    <span id="schedule-name">토익스터디</span>
+                    <span id="schedule-date">19년 08월 1일 10시</span>
+                    <span id="schedule-money">2000원</span>
+                </div>
+
+            </div> -->
+
+            <!-- 하단 고정바 -->
+            <div class="foot-bar">
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 여기서부터 스크립트 -->
+    <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+    </script>
+
 </body>
+
 </html>
