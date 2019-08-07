@@ -210,3 +210,5 @@ def delete(request):
             break 
     return redirect('/invite')
     
+def confirm(request):
+    return redirect('/home')
