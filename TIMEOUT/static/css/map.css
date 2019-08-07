@@ -1,0 +1,693 @@
+@media screen and (min-width:550px){
+    .center{
+        display: flex;
+        flex-direction :column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page {
+        width : 37rem;
+        height: auto;
+        background-color: #faf8f8;
+        /* margin-top: 3%; */
+        padding-bottom:1rem;
+    }
+    /* 상단 고정바 */
+    .head-bar{
+        position:fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 37rem;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #icon1{
+        width: auto;
+        height: 1.5rem;
+        margin-left:2rem;
+    }
+
+    #icon1:hover{
+        cursor: pointer;
+    }
+
+    #logo{
+        width: auto;
+        height: 1.8rem;
+    }
+
+    #logo:hover{
+        cursor: pointer;
+    }
+
+    #icon2{
+        width: auto;
+        height: 1.5rem;
+        margin-right:2rem;
+    }
+
+    #icon2:hover{
+        cursor: pointer;
+    }
+
+    /* 지도인증 부분 */
+    .arrive {
+        margin: 4.7rem auto;
+        width : 35rem;
+        height : 20rem;
+        border-radius: 3rem;
+        border : 0.3rem solid rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        background-color : #faf8f8;
+    }
+
+    .map {
+        width : 90%;
+        height: auto;
+        /* margin : 1rem 1rem;
+        border-radius: 4rem; */
+    }
+
+    #map {
+        width : 90%;
+        height: 18rem;
+        margin : 1rem 1rem;
+        border-radius: 4rem;
+    }
+
+    .arrive-content {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        width: 90%;
+    }
+
+    .arrive-content #reach {
+        font-size: x-large;
+        font-weight: bold;
+        text-align: center;
+        color : rgb(42 182 212);
+        margin : 1rem;
+    }
+    
+    .arrive-content #group-name {
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        color : black;
+    }
+
+    .arrive-content .group-img {
+        position: relative;
+        margin-top: .5rem;
+        overflow-x: scroll;
+        height: 5rem;
+    }
+
+    .arrive-content .group-img #member-img {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    .arrive-content #schedule {
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        color : black;
+    }
+
+    #timeout {
+        width: 10rem;
+        margin: 1rem auto;
+    }
+
+    /* 스크롤바 */
+    ::-webkit-scrollbar {
+        width: 0px;
+        /* 세로축 스크롤바 길이 */
+        height: 0px;
+        /* 가로축 스크롤바 길이 */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-button {
+        background-color:transparent;
+        width: 0px;
+        height: 0px;
+    }
+
+    ::-webkit-scrollbar-button:start {
+        background-color: transparent;
+        /* Top, Left 방향의 이동버튼 */
+    }
+
+    ::-webkit-scrollbar-button:end {
+        background-color: transparent;
+        /* Bottom, Right 방향의 이동버튼 */
+    }
+
+
+    ::-webkit-scrollbar-corner {
+        background-color: transparent;
+        /* 우측 하단의 코너 부분 */
+    }
+
+    ::-webkit-resizer {
+        background-color:transparent;
+    }
+
+}
+
+@media screen and (min-width:480px) and (max-width:550px){
+    .center{
+        display: flex;
+        flex-direction :column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page {
+        width : 100%;
+        height: auto;
+        background-color: #faf8f8;
+        /* margin-top: 3%; */
+        padding-bottom:1rem;
+    }
+    /* 상단 고정바 */
+    .head-bar{
+        position:fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #icon1{
+        width: auto;
+        height: 1.5rem;
+        margin-left:2rem;
+    }
+
+    #icon1:hover{
+        cursor: pointer;
+    }
+
+    #logo{
+        width: auto;
+        height: 1.8rem;
+    }
+
+    #logo:hover{
+        cursor: pointer;
+    }
+
+    #icon2{
+        width: auto;
+        height: 1.5rem;
+        margin-right:2rem;
+    }
+
+    #icon2:hover{
+        cursor: pointer;
+    }
+
+    /* 지도인증 부분 */
+    .arrive {
+        margin: 4.7rem auto;
+        width : 95%;
+        height : 30rem;
+        border-radius: 3rem;
+        border : 0.3rem solid rgb(42 182 212);
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        background-color : #faf8f8;
+    }
+
+    .map {
+        width : 100%;
+        height: auto;
+        /* margin : 1rem 1rem;
+        border-radius: 4rem; */
+    }
+
+    #map {
+        width : 95%;
+        height: 18rem;
+        margin : 1rem auto;
+        border-radius: 4rem;
+    }
+
+    .map #reach {
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        color : rgb(42 182 212);
+        margin : 1rem;
+        margin-left: 38%;
+    }
+
+    .arrive-content {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .arrive-content #group-name {
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        color : black;
+    }
+
+    .arrive-content .group-img {
+        float: left;
+        margin-left: 1rem;
+        /* position: relative; */
+        margin-top: 1rem;
+        overflow-x: scroll;
+        height: 4rem;
+    }
+
+    .arrive-content .group-img #member-img {
+        /* position: absolute; */
+        float: left;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    .arrive-content #schedule {
+        margin-right: 1rem;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        color : black;
+    }
+
+    #timeout {
+        float: right;
+        width: 10rem;
+        margin: 0 auto;
+        margin-right: 2rem;
+    }
+
+    /* 아래(약속) 부분 */
+    .bottom{
+        height: 10.5rem;
+        background-color: #faf8f8;
+        width: 100%;
+        /* margin: 0 auto; */
+        margin-bottom:3.7rem;
+        overflow: scroll;
+    }
+    #schedule-list{
+        font-weight: bold; 
+        font-size:large;
+        padding-top: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .schedule{
+        width: 90%;
+        height: 3rem;
+        margin-left: 5%;
+        background-color: rgb(84 103 143);
+        border-radius: 1rem 1rem;
+        text-align: center;
+        display: inline-block;
+
+    }
+
+    .schedule #schedule-name {
+        display: table-cell;
+        vertical-align: middle;
+        width: 10rem;
+        height: 3rem;
+        color : white;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .schedule #schedule-date {
+        display: table-cell;
+        vertical-align: middle;
+        width: 15rem;
+        height: 3rem;
+        color : white;
+        font-weight: bold;
+        font-size: large;
+        text-align: center;
+    }
+
+    .schedule #schedule-money {
+        display: table-cell;
+        vertical-align: middle;
+        width: 10rem;
+        height: 3rem;
+        color : white;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    /* 하단 고정바 */
+    .foot-bar{
+        position:fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        margin: 0 auto;
+        bottom: 0;
+    }
+
+    /* 스크롤바 */
+    ::-webkit-scrollbar {
+        width: 0px;
+        /* 세로축 스크롤바 길이 */
+        height: 0px;
+        /* 가로축 스크롤바 길이 */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-button {
+        background-color:transparent;
+        width: 0px;
+        height: 0px;
+    }
+
+    ::-webkit-scrollbar-button:start {
+        background-color: transparent;
+        /* Top, Left 방향의 이동버튼 */
+    }
+
+    ::-webkit-scrollbar-button:end {
+        background-color: transparent;
+        /* Bottom, Right 방향의 이동버튼 */
+    }
+
+
+    ::-webkit-scrollbar-corner {
+        background-color: transparent;
+        /* 우측 하단의 코너 부분 */
+    }
+
+    ::-webkit-resizer {
+        background-color:transparent;
+    }
+
+}
+
+
+@media screen and (max-width:480px){
+    .center{
+        display: flex;
+        flex-direction :column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page {
+        width : 100%;
+        height: auto;
+        background-color: #faf8f8;
+        /* margin-top: 3%; */
+        padding-bottom:1rem;
+    }
+    /* 상단 고정바 */
+    .head-bar{
+        position:fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #icon1{
+        width: auto;
+        height: 1.5rem;
+        margin-left:2rem;
+    }
+
+    #icon1:hover{
+        cursor: pointer;
+    }
+
+    #logo{
+        width: auto;
+        height: 1.8rem;
+    }
+
+    #logo:hover{
+        cursor: pointer;
+    }
+
+    #icon2{
+        width: auto;
+        height: 1.5rem;
+        margin-right:2rem;
+    }
+
+    #icon2:hover{
+        cursor: pointer;
+    }
+
+    /* 지도인증 부분 */
+    .arrive {
+        margin: 4.7rem auto;
+        width : 95%;
+        height : 30rem;
+        border-radius: 3rem;
+        border : 0.3rem solid rgb(42 182 212);
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        background-color : #faf8f8;
+    }
+
+    .map {
+        width : 100%;
+        height: auto;
+        /* margin : 1rem 1rem;
+        border-radius: 4rem; */
+    }
+
+    #map {
+        width : 95%;
+        height: 18rem;
+        margin : 1rem auto;
+        border-radius: 4rem;
+    }
+
+    .map #reach {
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        color : rgb(42 182 212);
+        margin : 1rem;
+        margin-left: 38%;
+    }
+
+    .arrive-content {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .arrive-content #group-name {
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        color : black;
+    }
+
+    .arrive-content .group-img {
+        float: left;
+        margin-left: 1rem;
+        /* position: relative; */
+        margin-top: 1rem;
+        overflow-x: scroll;
+        height: 4rem;
+    }
+
+    .arrive-content .group-img #member-img {
+        /* position: absolute; */
+        float: left;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    .arrive-content #schedule {
+        margin-right: 1rem;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        color : black;
+    }
+
+    #timeout {
+        float: right;
+        width: 10rem;
+        margin: 0 auto;
+        margin-right: 2rem;
+    }
+
+    /* 아래(약속) 부분 */
+    .bottom{
+        height: 10.5rem;
+        background-color: #faf8f8;
+        width: 100%;
+        /* margin: 0 auto; */
+        margin-bottom:3.7rem;
+        overflow: scroll;
+    }
+    #schedule-list{
+        font-weight: bold; 
+        font-size:large;
+        padding-top: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .schedule{
+        width: 90%;
+        height: 3rem;
+        margin-left: 5%;
+        background-color: rgb(84 103 143);
+        border-radius: 1rem 1rem;
+        text-align: center;
+        display: inline-block;
+
+    }
+
+    .schedule #schedule-name {
+        display: table-cell;
+        vertical-align: middle;
+        width: 10rem;
+        height: 3rem;
+        color : white;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .schedule #schedule-date {
+        display: table-cell;
+        vertical-align: middle;
+        width: 15rem;
+        height: 3rem;
+        color : white;
+        font-weight: bold;
+        font-size: large;
+        text-align: center;
+    }
+
+    .schedule #schedule-money {
+        display: table-cell;
+        vertical-align: middle;
+        width: 10rem;
+        height: 3rem;
+        color : white;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    /* 하단 고정바 */
+    .foot-bar{
+        position:fixed;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        margin: 0 auto;
+        bottom: 0;
+    }
+
+    /* 스크롤바 */
+    ::-webkit-scrollbar {
+        width: 0px;
+        /* 세로축 스크롤바 길이 */
+        height: 0px;
+        /* 가로축 스크롤바 길이 */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-button {
+        background-color:transparent;
+        width: 0px;
+        height: 0px;
+    }
+
+    ::-webkit-scrollbar-button:start {
+        background-color: transparent;
+        /* Top, Left 방향의 이동버튼 */
+    }
+
+    ::-webkit-scrollbar-button:end {
+        background-color: transparent;
+        /* Bottom, Right 방향의 이동버튼 */
+    }
+
+
+    ::-webkit-scrollbar-corner {
+        background-color: transparent;
+        /* 우측 하단의 코너 부분 */
+    }
+
+    ::-webkit-resizer {
+        background-color:transparent;
+    }
+
+}
