@@ -36,5 +36,6 @@ urlpatterns = [
     path('group/<int:group_id>/create', mainapp.views.create , name='create'),
     path('map/', mainapp.views.map, name='map'),
     path('home/confirm', mainapp.views.confirm, name='confirm'),
+    # path('del/<int:user_id>', mainapp.views.delete, name='delete'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
