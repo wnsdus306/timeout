@@ -66,6 +66,7 @@ def invite(request):
 
     if request.method == 'POST':
 
+        ############### 동일한 그룹이면 같은멤버 (수정해야함)##############
         for grp in groups:
             cnt_list.append(grp)
             if grp.title != request.POST['gr']:
@@ -78,27 +79,31 @@ def invite(request):
             group.save()
         else:
             group = Group_account.objects.get(title=request.POST['gr'])
-
+        ################################################################
         
+        ######################## 초대장 만들기 ##########################
         invitation.title = request.POST['gr']
         invitation.send = us.nickname
         invitation.receive = request.POST['invite']
         invitation.save()
-
-        for i in invitations:
+        
+        for i in invitations: # 초대장 같은 객체 중복생성 불가
             if i.receive == request.POST['invite'] and i.send == us.nickname and i.title == request.POST['gr']:
                 check+=1
                 if check != 1:
                     i.delete()
-       
-        invitations_i = Invite.objects.all()
+        #################################################################
+
+        invitations_i = Invite.objects.all() # 최종 초대장
         
+
         for iv in invitations_i:
-            if iv.title == request.POST['gr']: # 초대장의 title과 검색한 title이 같으면
+            if iv.title == request.POST['gr'] and iv.send == us.nickname: # 초대장의 title과 검색한 title이 같으면
                 us_f = User_account.objects.get(nickname = iv.receive)
                 us_f_list.append(us_f)
                 
-        return render(request, 'invite.html', {'us_f_list':us_f_list,'group':group})
+        return render(request, 'invite.html', {
+            'us_f_list':us_f_list,'group':group})
 
     else:
         return render(request, 'invite.html')
@@ -139,10 +144,7 @@ def check(request):
         if invi.receive == us.nickname:
             invi_us = Invite.objects.get(receive = us.nickname)
             break
-            # return render(request, 'check.html', {'invi_us':invi_us})
-            # break
     return render(request, 'check.html', {'invi_us':invi_us,'us':us})
-    # return redirect('/home')
 
 
 def yes(request):
@@ -175,3 +177,7 @@ def logout(request):
 
 def map(request):
     return render(request, 'map.html')
+
+# def delete(request,user_id):
+
+    
