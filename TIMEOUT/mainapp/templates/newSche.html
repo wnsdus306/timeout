@@ -1,32 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../static/css/newSchedule.css">
     <title>schedule 만드는페이지</title>
 </head>
+
 <body>
-    <div class="container">
-        <form action="{% url 'create' group.id %}">
-            <div class="form-group">
-                <label for="formGroupExampleInput">약속이름</label>
-                <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="제목을 입력해주세요">
+    <div class="center">
+        <div class="page">
+            <!--고정 상단바-->
+            <div class="head-bar">
+                <a href="./"><img id="icon1" src="../static/img/list.png" alt=""></a>
+                <a href="./index.html"><img id="logo" src="../static/img/로고화이트.png" alt=""></a>
+                <a href="./"><img id="icon2" src="../static/img/pencil.png" alt=""></a>
             </div>
-            <div class="form-group">
-                    <label for="formGroupExampleInput">벌금</label>
-                    <input type="number" name="penalty" class="form-control" id="formGroupExampleInput" placeholder="벌금을 입력해주세요">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">날짜</label>
-                    <input type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="날짜을 입력해주세요">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">시간</label>
-                    <input type="time" name="time"  min ="00:00" max="24:00" class="form-control" id="formGroupExampleInput" placeholder="시간을 입력해주세요">
-                </div>
-            <button type="submit" class="btn btn-dark">작성</button>
-        </form>
+            <div class="schedule">
+                <span class="title">그룹약속 생성</span>
+                <form action="{% url 'create' group.id %}">
+                    <div class="form-group">
+                        <label id="name" for="formGroupExampleInput">약속이름</label>
+                        <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="약속이름">
+                    </div>
+                    <div class="form-group">
+                        <label id="name" for="formGroupExampleInput">벌금</label>
+                        <input type="number" name="penalty" class="form-control" id="formGroupExampleInput"  placeholder="벌금">
+                    </div>
+                    <div class="form-group">
+                        <label id="name" for="formGroupExampleInput">날짜</label>
+                        <input type="date" name="date" class="form-control" id="formGroupExampleInput"  placeholder="날짜">
+                    </div>
+                    <div class="form-group">
+                        <label id="name" for="formGroupExampleInput">시간</label>
+                        <input type="time" name="time" min="00:00" max="24:00" class="form-control"
+                            id="formGroupExampleInput"  placeholder="시간">
+                    </div>
+
+                    <div class="create_schedule">
+                        <button class="button" type="submit">작성</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- 하단 고정바 -->
+        <div class="foot-bar">
+
+        </div>
     </div>
+
+    <!-- 계좌생성 버튼 -->
+    <script>
+            $(document).ready(function () {
+            var formInputs = $('input[type="text"],input[type="number"],input[type="date"],input[type="time"]');
+            formInputs.focus(function () {
+            $(this).parent().children('label#name').addClass('formTop');
+            });
+            formInputs.focusout(function () {
+            if ($.trim($(this).val()).length == 0) {
+            $(this).parent().children('label#name').removeClass('formTop');
+            }
+            });
+            $('label#name').click(function () {
+            $(this).parent().children('.form-control').focus();
+            });
+            });
+        </script>
+
 </body>
+
 </html>
