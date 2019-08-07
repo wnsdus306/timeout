@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Group_account,User_account,User_history,Schedule, Invite
+from .models import Group_account,User_account,User_history,Schedule, Invite,Punish
 from django.conf import settings
-
+from datetime import datetime,timezone
+from django.utils import timezone
 def index(request):
     return render(request, 'index.html')
 
@@ -53,23 +54,42 @@ def home(request):
 
     
 def invite(request):
-    users = User_account.objects.all()
+    users = User_account.objects.all() 
     us = User_account.objects.get(name = request.user)
+    groups = Group_account.objects.all()
     group = Group_account()
+    invitation = Invite()
+    invitations = Invite.objects.all()
+    us_f_list = []
+    cnt = 0
+    cnt_list =[]
 
     if request.method == 'POST':
-        group.title = request.POST['gr']
-        group.save()
-        group.members.add(us)
-        group.save()
-        for i in range(3):
-            invi = 'invite' + str(i+1)
-            invitation = Invite()
-            invitation.title = request.POST['gr']
-            invitation.send = us.nickname
-            invitation.receive = request.POST[invi]
-            invitation.save()
-        return redirect('/home')
+
+        for grp in groups:
+            cnt_list.append(grp)
+            if grp.title != request.POST['gr']:
+                cnt += 1
+
+        if cnt == len(cnt_list):
+            group.title = request.POST['gr']
+            group.save()
+            group.members.add(us)
+            group.save()
+        else:
+            group = Group_account.objects.get(title=request.POST['gr'])
+
+        invitation.title = request.POST['gr']
+        invitation.send = us.nickname
+        invitation.receive = request.POST['invite']
+        invitation.save()
+        
+        for iv in invitations:
+            if iv.title == request.POST['gr']: # 초대장의 title과 검색한 title이 같으면
+                us_f = User_account.objects.get(nickname = iv.receive)
+                us_f_list.append(us_f)
+                
+        return render(request, 'invite.html', {'us_f_list':us_f_list,'group':group})
 
     else:
         return render(request, 'invite.html')
@@ -98,6 +118,13 @@ def create(request,group_id):
     schedule.penalty = request.GET['penalty']
     schedule.date = request.GET['date']+" "+request.GET['time']
     schedule.save()
+
+    for group_user in schedule.group_ac.members.all():
+        punish = Punish()
+        punish.nick = group_user.nickname
+        punish.success = False
+        punish.schedule = schedule
+        punish.save()
     return redirect('/group/'+str(schedule.group_ac.id))
 
 
@@ -145,6 +172,17 @@ def logout(request):
     return redirect('/login')
 
 def map(request):
+    nickname = User_account.objects.get( name = request.user)
+    punish= Punish.objects.filter(nick=nickname)
+    time_list= []
+    time_dictionary = {}
+    for p in punish.all():
+        print(p.nick)
+        print(p.schedule.title)
+        time_list.append(p.schedule.date)
+    time_list.append(datetime.now())
+    print(time_list)
+    
     return render(request, 'map.html')
 
 def confirm(request):

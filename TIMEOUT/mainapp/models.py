@@ -35,6 +35,7 @@ class Schedule(models.Model):
     date = models.DateTimeField('date published',null=True, blank=True)
     penalty = models.IntegerField(null= True, blank=True)
     location = models.CharField(max_length=100, null=True,blank=True)
+
     def __str__(self):
         return self.title
         
@@ -46,4 +47,12 @@ class Invite(models.Model):
     receive = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.send
+        return self.send + '->' +self.receive
+
+class Punish(models.Model):
+    nick = models.CharField(max_length =100, null= True, blank = True)
+    success = models.BooleanField(null=True, blank=True)
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE, null = True)
+
+    def __str__(self):
+        return self.nick
