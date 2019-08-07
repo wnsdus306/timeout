@@ -47,4 +47,5 @@ class Invite(models.Model):
     receive = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.send
+        return self.send + '->' +self.receive
+
