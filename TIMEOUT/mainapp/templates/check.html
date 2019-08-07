@@ -1,7 +1,55 @@
-{% if invi_us.receive %}
+<!-- {% if invi_us.receive %}
 {{invi_us.send}}님이 {{invi_us.title}} 에 초대하였습니다.<br>
 <a href='{% url "yes" %}'>수락</a><br>
 <a href='{% url "no" %}'>거절</a><br>
 {% else %}
 받은 초대장이 없습니당ㅇㅇ
 {% endif %}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- jQuery 연결 -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset="UTF-8">
+    <link href="../static/css/check.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--고정 상단바-->
+    <div class="head-bar">
+        <img id="icon1" src="../static/img/list.png" alt="">
+        <img id="logo" src="../static/img/로고화이트.png" alt="">
+        <img id="icon2" src="../static/img/bell.png" alt="">
+    </div>
+    <!--초대장 목록-->
+    <div class="middle">
+        <div class="card">
+            <h1 id="title">초대합니다</h1>
+            <div class="info">
+                <img id="simg" src="../static/img/계정이미지.jpg" alt="">
+                <p id="content">정봉구님이 초대하신<br>'울트라멋사모임'</p>
+            </div>
+            <hr class="line">
+            <div class="button">
+                <button id="accept"><span style="font-size: 18px; font-weight:bold; color:black;">수락</span></button>
+                <button id="reject"><span style="font-size: 18px; font-weight:bold; color:black;">거절</span></button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 하단 고정바 -->
+    <div class="foot-bar">
+
+    </div>
+</body>
+
+</html>

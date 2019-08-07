@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Group_account,User_account,User_history,Schedule, Invite
+from .models import Group_account,User_account,User_history,Schedule, Invite,Punish
 from django.conf import settings
-
+from datetime import datetime,timezone
+from django.utils import timezone
 def index(request):
     return render(request, 'index.html')
 
@@ -133,6 +134,13 @@ def create(request,group_id):
     schedule.penalty = request.GET['penalty']
     schedule.date = request.GET['date']+" "+request.GET['time']
     schedule.save()
+
+    for group_user in schedule.group_ac.members.all():
+        punish = Punish()
+        punish.nick = group_user.nickname
+        punish.success = False
+        punish.schedule = schedule
+        punish.save()
     return redirect('/group/'+str(schedule.group_ac.id))
 
 
@@ -177,6 +185,17 @@ def logout(request):
     return redirect('/login')
 
 def map(request):
+    nickname = User_account.objects.get( name = request.user)
+    punish= Punish.objects.filter(nick=nickname)
+    time_list= []
+    time_dictionary = {}
+    for p in punish.all():
+        print(p.nick)
+        print(p.schedule.title)
+        time_list.append(p.schedule.date)
+    time_list.append(datetime.now())
+    print(time_list)
+    
     return render(request, 'map.html')
 
 def delete(request):
