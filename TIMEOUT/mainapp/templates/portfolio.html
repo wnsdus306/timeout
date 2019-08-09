@@ -32,7 +32,7 @@
                     {% csrf_token %}
                     <!-- 프로필 이미지 -->
                     <div class="profile_img">
-                        <input type=file id="files" accept=".gif, .jpg, .png" name='image' style='display: none;'>
+                        <input type='file' id="files" accept=".gif, .jpg, .png" name='image' style='display: none;'>
                         <input type='text' name='file2' id='file2' style='display: none;'> 
                         <img id="profile" src="../static/img/basic_profile.png"
                             onclick='document.all.image.click(); 

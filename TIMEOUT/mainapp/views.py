@@ -201,23 +201,21 @@ def delete(request):
 def map(request):
     nickname = User_account.objects.get(name = request.user)
     punishs= Punish.objects.filter(nick=nickname).values('schedule_id')
-    punish_list = list(punishs)
-    keys = punish_list.pop().values()
-    print(keys)
-
-    #for punish in punishs:
-    #    print(punish.schedule.date)
-
-    #schedule = Schedule.objects.all()
-    #for sch in schedule:
-    #    print(sch.date.hour) ##+ 9)
-    #    time1 = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
+    sche = []
+    first = []
+    for key in punishs.all():
+        sche.append(Schedule.objects.get(pk = key['schedule_id']))
     
-    #print(datetime.utcnow().hour)
-    #time2 = datetime.now()
-
-    #print(time1-time2)
-    return render(request, 'map.html')
+    sche.sort(key=lambda r:r.date)
+    
+    if not sche:
+        pass
+    else: 
+        first=sche.pop(0)
+        first.date += timedelta(hours=9)
+    
+    
+    return render(request, 'map.html', {'schedule':sche, 'first':first})
 
 def confirm(request):
     nickname = User_account.objects.get( name = request.user)
