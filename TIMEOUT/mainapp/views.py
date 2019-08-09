@@ -67,7 +67,11 @@ def invite(request):
 
 
     if request.method == 'POST':
-
+        ################### 검색때 추가한 데이터 삭제 ####################
+        for invi_target in invitations:
+            if invi_target.title == request.POST['gr'] and invi_target.receive == request.POST['gr'] and invi_target.send == us.nickname:
+                invi_target.delete()
+                print("재일재일재일")
         ############### 동일한 그룹이면 같은멤버 (수정해야함)##############
         for grp in groups:
             cnt_list.append(grp)
@@ -104,11 +108,38 @@ def invite(request):
                 us_f = User_account.objects.get(nickname = iv.receive)
                 us_f_list.append(us_f)
                 
-        return render(request, 'invite.html', {
-            'us_f_list':us_f_list,'group':group})
+
+        return render(request, 'invite.html', {'us_f_list':us_f_list,'group':group})
 
     else:
         return render(request, 'invite.html')
+
+
+
+def search(request):
+    group = request.POST['gr']
+    if request.method == 'POST':
+        us = User_account.objects.get(name = request.user)
+        us_m = User_account.objects.get(nickname=request.POST['invite'])
+        member = request.POST['invite']
+        us_f_list = []
+
+        users = User_account.objects.all()
+
+        invitations_i = Invite.objects.all() # 최종 초대장
+        
+
+        if not invitations_i:
+            pass
+        else:
+            for iv in invitations_i:
+                if iv.title == request.POST['gr'] and iv.send == us.nickname: # 초대장의 title과 검색한 title이 같으면
+                    us_f = User_account.objects.get(nickname = iv.receive)
+                    us_f_list.append(us_f)
+            
+
+        return render(request, 'search.html', {'us_m':us_m, 'group':group, 'member':member, 'us_f_list':us_f_list})
+    return render(request, 'search.html')
 
 
 def logout(request):
@@ -235,3 +266,5 @@ def confirm(request):
     #print(time_list)
     
     return redirect('/home')
+
+

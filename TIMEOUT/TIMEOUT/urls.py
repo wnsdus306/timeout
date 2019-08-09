@@ -37,5 +37,6 @@ urlpatterns = [
     path('delete/', mainapp.views.delete, name='delete'),
     path('map/', mainapp.views.map, name='map'),
     path('confirm/', mainapp.views.confirm, name='confirm'),
+    path('search/', mainapp.views.search, name='search'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
