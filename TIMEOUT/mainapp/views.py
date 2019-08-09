@@ -136,11 +136,17 @@ def create(request,group_id):
     schedule.save()
 
     for group_user in schedule.group_ac.members.all():
+        group_user.user_money = group_user.user_money - int(schedule.penalty)
+        schedule.group_ac.group_money += int(schedule.penalty)
         punish = Punish()
         punish.nick = group_user.nickname
         punish.success = False
         punish.schedule = schedule
         punish.save()
+    
+    schedule.group_ac.save()
+    group_user.save()
+
     return redirect('/group/'+str(schedule.group_ac.id))
 
 
@@ -201,42 +207,35 @@ def delete(request):
 def map(request):
     nickname = User_account.objects.get(name = request.user)
     punishs= Punish.objects.filter(nick=nickname).values('schedule_id')
-    punish_list = list(punishs)
-    keys = punish_list.pop().values()
-    print(keys)
-
-    # for punish in punishs:
-    #    print(punish.schedule.date)
-
-    # schedule = Schedule.objects.all()
-    # for sch in schedule:
-    #    print(sch.date.hour) ##+ 9)
-    #    time1 = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
+    sche = []
+    first = []
+    for key in punishs.all():
+        sche.append(Schedule.objects.get(pk = key['schedule_id']))
     
-    # print(datetime.utcnow().hour)
-    # time2 = datetime.now()
+    sche.sort(key=lambda r:r.date)
+    
+    if not sche:
+        pass
+    else: 
+        first=sche.pop(0)
+        first.date += timedelta(hours=9)
+    return render(request, 'map.html', {'schedule':sche, 'first':first})
+    
 
-    # print(time1-time2)
-    return render(request, 'map.html')
-
-def confirm(request):
-    sch = get_object_or_404(Schedule, pk = schedule_id)
+def confirm(request,first_id):
+    sch = get_object_or_404(Schedule, pk = first_id)
     nickname = User_account.objects.get( name = request.user)
     punish= Punish.objects.filter(schedule= sch).get(nick= nickname)
+    print(sch.date)
     timenow = datetime.now()
-    
     timesche = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
-    
-    if (timesche - timenow).hours >= 9 :
-        punish.success = True
-
-    #time_list= []
-    #time_dictionary = {}
-    #for p in punish.all():
-    #    print(p.nick)
-    #    print(p.schedule.title)
-    #    time_list.append(p.schedule.date)
-    #time_list.append(datetime.now())
-    #print(time_list)
-    
-    return redirect('/home')
+    t = (timesche+timedelta(hours=9))-timenow 
+    if t >= timedelta(hours=0) :
+        punish.delete()
+        nickname.user_money += int(sch.penalty)
+        sch.group_ac.group_money -= int(sch.penalty)
+        sch.group_ac.save()
+        nickname.save()
+        return redirect('/home')
+    else:
+        return redirect('/map')
