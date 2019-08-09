@@ -24,6 +24,7 @@ background-position: center;
 cursor: pointer;
 }
 
+
 #menu {
 width: 28rem;
 height: 100%;
@@ -59,8 +60,16 @@ z-index: 4;
 display: none;
 }
 
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* 상단 고정바 */
 .head-bar{
+    /* position: fixed; */
     height: 3.7rem;
     background-color: rgb(42 182 212);
     display: flex;
@@ -75,6 +84,12 @@ display: none;
     height: 1.5rem;
     margin-left:2rem;
 }
+
+
+#icon1:hover{
+    cursor: pointer;
+}
+
 #logo{
     width: auto;
     height: 1.8rem;
@@ -94,6 +109,7 @@ display: none;
     width: 37rem;
     align-items: center;
     margin: 0 auto;
+    /* margin-top: 3.7rem; */
 }
 /* 안내문구 */
 #hi{
@@ -133,6 +149,7 @@ display: none;
     margin-left: 4rem;
     margin-right: 3rem;
     margin-bottom: 2rem;
+    /* box-shadow: 0.1px 0.5px 1px rgb(94, 102, 70); */
 }
 
 /* 계좌 */
@@ -149,6 +166,7 @@ display: none;
     height: 13rem;
     background: rgb(188, 224, 253);
     margin-bottom: 2rem;
+    box-shadow: 2px 1.5px 3px rgb(118, 161, 197);
     
 }
 .group {
@@ -156,6 +174,7 @@ display: none;
     height: 13rem;
     background: rgb(42 182 212);
     margin-bottom: 2rem;
+    box-shadow: 1.5px 1.5px 3px rgb(76, 114, 145);
 }
 
 #name{
@@ -271,6 +290,7 @@ display: none;
     vertical-align: middle;
     text-align:center;
     justify-content: center;
+    box-shadow: 1.5px 1.5px 3px rgb(76, 114, 145);
 }
 
 .group-plus :hover{
@@ -283,7 +303,8 @@ display: none;
     height: 5rem;
     text-align: center;
     margin-left: 8.4rem;
-    border :0.1rem solid white; 
+    border :0.1rem solid #fdfdfd; 
+    box-shadow: 0.5px 0.5px 1px rgb(105, 138, 165);
 }
 .group-plus-plus :hover{
     cursor:pointer;
@@ -295,6 +316,11 @@ display: none;
     vertical-align: middle;
     width : 2rem;
     height: 2rem;
+    -webkit-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
+    -moz-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
+    -ms-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
+    -o-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
+    filter: drop-shadow(0px 1px 0.5px rgb(105, 138, 165));
 }
 
 /* 아래(약속) 부분 */
@@ -356,6 +382,7 @@ display: none;
 
 /* 하단 고정바 */
 .foot-bar{
+    /* position: fixed; */
     height: 3.7rem;
     background-color: rgb(42 182 212);
     display: flex;
@@ -363,13 +390,34 @@ display: none;
     width: 37rem;
     align-items: center;
     margin: 0 auto;
+    bottom: 0;
 }
+
+#foot-home{
+    width: auto;
+    height: 2.5rem;
+    margin-left:4rem;
+}
+#foot-invite{
+    width: auto;
+    height: 2.5rem;
+}
+#foot-bell{
+    width: auto;
+    height: 2.5rem;
+}
+#foot-user{
+    width: auto;
+    height: 2.5rem;
+    margin-right:4rem;
+}
+
 
 /* 스크롤바 */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0px;
     /* 세로축 스크롤바 길이 */
-    height: 20px;
+    height: 0px;
     /* 가로축 스크롤바 길이 */
 }
 
@@ -382,14 +430,14 @@ display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 8px;
+    border-radius: 0px;
     background-color: transparent;
 }
 
 ::-webkit-scrollbar-button {
     background-color:transparent;
-    width: 20px;
-    height: 10px;
+    width: 0px;
+    height: 0px;
 }
 
 ::-webkit-scrollbar-button:start {
@@ -414,6 +462,67 @@ display: none;
 }
 /* 두번째꺼 */
 @media screen and (min-width:480px) and (max-width:550px){
+    /* 슬라이드 바 */
+html.open {
+    overflow: hidden;
+    }
+    
+    .btn {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    }
+    
+    .close {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    }
+    
+    
+    #menu {
+    width: 28rem;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: -29rem;
+    z-index: 10;
+    border: 1px solid #c9c9c9;
+    background-color: white;
+    text-align: center;
+    transition: All 0.2s ease;
+    -webkit-transition: All 0.2s ease;
+    -moz-transition: All 0.2s ease;
+    -o-transition: All 0.2s ease;
+    }
+    
+    #menu.open {
+    left: 0px;
+    }
+    
+    .page_cover.open {
+    display: block;
+    }
+    
+    .page_cover {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    display: none;
+    }
+    
+    
     html,body { 
         height: 100%; 
         margin: 0; 
@@ -526,13 +635,14 @@ display: none;
         height: 13rem;
         background: rgb(188, 224, 253);
         margin-bottom: 2rem;
-        box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+        box-shadow: 2px 1.5px 3px rgb(118, 161, 197);
     }
     .group {
         width: 95%;
         height: 13rem;
         background: rgb(42 182 212);
         margin-bottom: 2rem;
+        box-shadow: 1.5px 1.5px 3px rgb(76, 114, 145);
     }
 
     #name{
@@ -643,7 +753,8 @@ display: none;
         display: table-cell;
         vertical-align: middle;
         text-align:center;
-        justify-content: center;
+        justify-content: center;;
+        box-shadow: 1.5px 1.5px 3px rgb(76, 114, 145);
     }
 
     .group-plus :hover{
@@ -728,16 +839,34 @@ display: none;
 
     /* 하단 고정바 */
     .foot-bar{
-        position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 37rem;
         align-items: center;
         margin: 0 auto;
-        bottom: 0;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
         /* 스크롤바 */
         ::-webkit-scrollbar {
             width: 0px;
@@ -802,6 +931,65 @@ display: none;
     .page {
         overflow: scroll;
     }
+    /* 슬라이드 바 */
+html.open {
+    overflow: hidden;
+    }
+    
+    .btn {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    }
+    
+    .close {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    }
+    
+    
+    #menu {
+    width: 28rem;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: -29rem;
+    z-index: 10;
+    border: 1px solid #c9c9c9;
+    background-color: white;
+    text-align: center;
+    transition: All 0.2s ease;
+    -webkit-transition: All 0.2s ease;
+    -moz-transition: All 0.2s ease;
+    -o-transition: All 0.2s ease;
+    }
+    
+    #menu.open {
+    left: 0px;
+    }
+    
+    .page_cover.open {
+    display: block;
+    }
+    
+    .page_cover {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    display: none;
+    }
 
     /* 상단 고정바 */
     .head-bar{
@@ -900,13 +1088,14 @@ display: none;
         height: 13rem;
         background: rgb(188, 224, 253);
         margin-bottom: 2rem;
-        box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+        box-shadow: 2px 1.5px 3px rgb(118, 161, 197);
     }
     .group {
         width: 95%;
         height: 13rem;
         background: rgb(42 182 212);
         margin-bottom: 2rem;
+        box-shadow: 1.5px 1.5px 3px rgb(76, 114, 145);
     }
 
     #name{
@@ -1018,6 +1207,7 @@ display: none;
         vertical-align: middle;
         text-align:center;
         justify-content: center;
+        box-shadow: 1.5px 1.5px 3px rgb(76, 114, 145);
     }
 
     .group-plus :hover{
@@ -1102,16 +1292,34 @@ display: none;
 
     /* 하단 고정바 */
     .foot-bar{
-        position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 37rem;
         align-items: center;
         margin: 0 auto;
-        bottom: 0;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
         /* 스크롤바 */
         ::-webkit-scrollbar {
             width: 0px;

@@ -34,7 +34,9 @@ urlpatterns = [
     path('group/<int:group_id>',mainapp.views.group, name='group'),
     path('group/<int:group_id>/new',mainapp.views.newSchedule, name='newSche'),
     path('group/<int:group_id>/create', mainapp.views.create , name='create'),
+    path('delete/', mainapp.views.delete, name='delete'),
     path('map/', mainapp.views.map, name='map'),
-    # path('del/<int:user_id>', mainapp.views.delete, name='delete'),
+    path('search/', mainapp.views.search, name='search'),
+    path('confirm/<int:first_id>', mainapp.views.confirm, name='confirm'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

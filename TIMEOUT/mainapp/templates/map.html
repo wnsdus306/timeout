@@ -14,10 +14,17 @@
     </script>
     <link rel="stylesheet" type="text/css" href="../static/css/map.css">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -30,7 +37,10 @@
                 <a href="./index.html"><img id="logo" src="../static/img//로고화이트.png" alt=""></a>
                 <a href="./"><img id="icon2" src="../static/img/bell.png" alt=""></a>
             </div>
-
+            {% if not first %}
+            <br><br><br><br>
+            <h1>약속이없습니다.</h1>
+            {% else %}
             <!-- 지도인증 부분 -->
             <div class="arrive">
                 <div class="map">
@@ -41,51 +51,46 @@
                 <div class="map-bottom">
                     <div class="arrive-content">
                         <span id="reach-pc">타임인증하기</span>
-                        <span id="group-name">"멋쟁이사자처럼"</span>
-                        <span id="schedule">약속내용 : 조모임 18시</span>
+                        <span id="group-name">그룹 : {{first.group_ac.title}}</span>
+                        <span id="schedule">약속내용 : {{first.title}} {{first.date.hour}}시 {{first.date.minute}}분</span>
                     </div>
                     <div class="arrive-button">
                         <div class="group-img">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
+                            {% for first_img in first.group_ac.members.all %}
+                            {% if not us.image %}
+                            <img id="member-img" src="../static/img/basic.png">
+                            {% else %}
+                            <img id="member-img" src="{{first_img.image.url}}">
+                            {% endif %}
+                            {% endfor %}
                         </div>
-                        <button type="button" class="btn btn-danger" id="timeout">인증하기</button>
+                        <a href="{% url 'confirm' first.id %}"><button type="button" class="btn btn-danger"
+                                id="timeout">인증하기</button></a>
+
                     </div>
                 </div>
             </div>
+
+
 
             <!-- 약속 순서대로 정렬  -->
             <div class="bottom">
                 <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
+                {% for s in schedule %}
                 <div class="schedule">
-                    <span id="schedule-name">토익스터디</span>
-                    <span id="schedule-date">19년 08월 1일 10시</span>
-                    <span id="schedule-money">2000원</span>
+                    <span id="schedule-name">{{s.title}}</span>
+                    <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일 {{s.date.hour}}시</span>
+                    <span id="schedule-money">{{s.penalty}}원</span>
                 </div>
-                <div class="schedule">
-                        <span id="schedule-name">토익스터디</span>
-                        <span id="schedule-date">19년 08월 1일 10시</span>
-                        <span id="schedule-money">2000원</span>
-                    </div>
-                    <div class="schedule">
-                            <span id="schedule-name">토익스터디</span>
-                            <span id="schedule-date">19년 08월 1일 10시</span>
-                            <span id="schedule-money">2000원</span>
-                        </div>
-                        <div class="schedule">
-                    <span id="schedule-name">토익스터디</span>
-                    <span id="schedule-date">19년 08월 1일 10시</span>
-                    <span id="schedule-money">2000원</span>
-                </div>
-
+                {% endfor %}
             </div>
-
+            {% endif %}
             <!-- 하단 고정바 -->
             <div class="foot-bar">
-
+                <a href="{% url 'home' %}"><img id="foot-home" src="../static/img/home.png" alt=""></a>
+                <a href="{% url 'check' %}"><img id="foot-invite" src="../static/img/invite.png" alt=""></a>
+                <a href="{% url 'map' %}"><img id="foot-bell" src="../static/img/bell.png" alt=""></a>
+                <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
             </div>
 
         </div>
@@ -95,7 +100,7 @@
     <script>
         var mapOptions = {
             center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
+            zoom: 10,
         };
 
         var map = new naver.maps.Map('map', mapOptions);
