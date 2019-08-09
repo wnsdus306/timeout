@@ -49,11 +49,13 @@
                     </div>
                     <div class="arrive-button">
                         <div class="group-img">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
-                            <img id="member-img" src="../static/img/계정이미지.jpg">
+                            {% for first_img in first.group_ac.members.all %}
+                            {% if not us.image %}
+                            <img id="member-img" src="../static/img/basic.png">
+                            {% else %}
+                            <img id="member-img" src="{{first_img.image.url}}">
+                            {% endif %}
+                            {% endfor %}
                         </div>
                         <a href= "{% url 'confirm' %}"><button type="button" class="btn btn-danger" id="timeout">인증하기</button></a>
 
