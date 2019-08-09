@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Group_account,User_account,User_history,Schedule, Invite,Punish
 from django.conf import settings
-from datetime import datetime,timezone
+from datetime import datetime, timezone, timedelta
 from django.utils import timezone
 def index(request):
     return render(request, 'index.html')
@@ -184,19 +184,7 @@ def logout(request):
     auth.logout(request)
     return redirect('/login')
 
-def map(request):
-    nickname = User_account.objects.get( name = request.user)
-    punish= Punish.objects.filter(nick=nickname)
-    time_list= []
-    time_dictionary = {}
-    for p in punish.all():
-        print(p.nick)
-        print(p.schedule.title)
-        time_list.append(p.schedule.date)
-    time_list.append(datetime.now())
-    print(time_list)
-    
-    return render(request, 'map.html')
+
 
 def delete(request):
     user_id = request.POST['user_id']
@@ -210,5 +198,40 @@ def delete(request):
             break 
     return redirect('/invite')
     
+def map(request):
+    nickname = User_account.objects.get(name = request.user)
+    punishs= Punish.objects.filter(nick=nickname).values('schedule_id')
+    punish_list = list(punishs)
+    keys = punish_list.pop().values()
+    print(keys)
+
+    #for punish in punishs:
+    #    print(punish.schedule.date)
+
+    #schedule = Schedule.objects.all()
+    #for sch in schedule:
+    #    print(sch.date.hour) ##+ 9)
+    #    time1 = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
+    
+    #print(datetime.utcnow().hour)
+    #time2 = datetime.now()
+
+    #print(time1-time2)
+    return render(request, 'map.html')
+
 def confirm(request):
+    nickname = User_account.objects.get( name = request.user)
+    punish= Punish.objects.filter(nick=nickname)
+
+    
+
+    #time_list= []
+    #time_dictionary = {}
+    #for p in punish.all():
+    #    print(p.nick)
+    #    print(p.schedule.title)
+    #    time_list.append(p.schedule.date)
+    #time_list.append(datetime.now())
+    #print(time_list)
+    
     return redirect('/home')
