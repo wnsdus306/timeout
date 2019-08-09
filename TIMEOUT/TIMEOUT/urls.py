@@ -27,7 +27,7 @@ urlpatterns = [
     path('portfolio/', mainapp.views.portfolio, name='portfolio'),
     path('check/', mainapp.views.check, name='check'),
     path('invite/', mainapp.views.invite, name='invite'),
-    path('yes/', mainapp.views.yes, name='yes'),
+    path('yes/<int:inv_id>', mainapp.views.yes, name='yes'),
     path('no/', mainapp.views.no, name='no'),
     path('home/', mainapp.views.home, name='home'),
     path('logout/', mainapp.views.logout, name='logout'),
@@ -38,5 +38,7 @@ urlpatterns = [
     path('map/', mainapp.views.map, name='map'),
     path('search/', mainapp.views.search, name='search'),
     path('confirm/<int:first_id>', mainapp.views.confirm, name='confirm'),
+    path('scheDelete/<int:first_id>', mainapp.views.scheDelete, name='scheDelete'),
+    path('home/charge/<int:user_id>', mainapp.views.charge , name='charge'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

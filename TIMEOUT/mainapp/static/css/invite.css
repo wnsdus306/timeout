@@ -155,7 +155,7 @@
         display: flex;
         overflow-x: scroll;
         overflow-y: hidden;
-        height: 7rem;
+        height: 10rem;
     }
     .members #mimg{
         width:5rem;
@@ -165,7 +165,7 @@
     .members #delete{
         width:2rem;
         height: 2rem;
-        /* margin-top: 5rem; */
+        margin-top: -3rem;
         margin-left: -1.7rem;
     }
     

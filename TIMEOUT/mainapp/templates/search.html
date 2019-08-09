@@ -43,9 +43,11 @@
             {% if not user.image%}
             <img id="mimg" src="../static/img/basic.png" alt="">
             <img id="delete" src="../static/img/delete.png" alt="">
+            <p>{{user.nickname}}</p>
             {% else %}
             <img id="mimg" src="{{user.image.url}}" alt="">
             <img id="delete" src="../static/img/delete.png" alt="">
+            <p>{{user.nickname}}</p>
             {% endif %}
             {% endfor %}
             </div>
@@ -60,10 +62,10 @@
             <div class="smember">
                 <div class="info">
                     
-                    {% if not us_m %}
+                    {% if not us_m.image %}
                     <img id="simg" src="../static/img/basic.png" alt="">
                     {% else %}
-                    <img id="simg" src="{{user.image.url}}" alt="">
+                    <img id="simg" src="{{us_m.image.url}}" alt="">
                     {% endif %}
                     
                     <h1 id="sname">{{us_m.nickname}}</h1>

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Group_account,User_account,User_history,Schedule, Invite,Punish
+from .models import Group_account,User_account,User_history,Schedule, Invite,Punish,Group_history
 from django.conf import settings
 from datetime import datetime, timezone, timedelta
 from django.utils import timezone
@@ -22,9 +22,10 @@ def portfolio(request):
         us.name = request.user
         us.user_money = 0
         us.nickname = request.POST['nickname']
-        if us.image:
+        if bool(request.FILES.get('image',False)) == True:
             us.image = request.FILES['image']
         us.save()
+        
         return redirect('/home')
     else:
         for user in users:
@@ -50,7 +51,22 @@ def home(request):
             if member.name.username == request.user.username:
                 user_group.append(group)
 
-    return render(request, 'home.html',{'groups': user_group,'us':us})
+    nickname = User_account.objects.get(name = request.user)
+    punishs= Punish.objects.filter(nick=nickname).values('schedule_id')
+    sche = []
+    first = []
+    for key in punishs.all():
+        sche.append(Schedule.objects.get(pk = key['schedule_id']))
+    
+    sche.sort(key=lambda r:r.date)
+    
+    if not sche:
+        pass
+    else: 
+        first=sche.pop(0)
+        first.date += timedelta(hours=9)
+
+    return render(request, 'home.html',{'groups': user_group,'us':us, 'first':first})
 
     
 def invite(request):
@@ -150,8 +166,8 @@ def logout(request):
 def group(request,group_id):
     group = get_object_or_404(Group_account, pk=group_id)
     sche= Schedule.objects.filter(group_ac = group)
-
-    return render(request, 'group.html',{'group' : group, 'schedules': sche})
+    history = Group_history.objects.all().order_by('-id')
+    return render(request, 'group.html',{'group' : group, 'schedules': sche, 'histories':history})
 
 
 def newSchedule(request,group_id): 
@@ -182,20 +198,21 @@ def create(request,group_id):
 
 
 def check(request):
+    inv_list=[]
     invitations = Invite.objects.all()
     us = User_account.objects.get(name = request.user)
-    invi_us = Invite()
-
-    for invi in invitations:
-        if invi.receive == us.nickname:
-            invi_us = Invite.objects.get(receive = us.nickname)
-            break
-    return render(request, 'check.html', {'invi_us':invi_us,'us':us})
+    for inv in invitations:
+        if inv.receive == us.nickname:
+            inv_list.append(inv)
 
 
-def yes(request):
+    
+    return render(request, 'check.html', {'inv_list':inv_list})
+
+
+def yes(request, inv_id):
     us = User_account.objects.get(name = request.user)
-    invi_us = Invite.objects.get(receive = us.nickname)
+    invi_us = get_object_or_404(Invite, pk=inv_id)
     invi_us.check = True
     invi_us.save()
     group = Group_account.objects.get(title = invi_us.title)
@@ -209,11 +226,7 @@ def yes(request):
 
 
 def no(request):
-    us = User_account.objects.get(name = request.user)
-    invi_us = Invite.objects.get(receive = us.nickname)
-    invi_us.check = False
-    invi_us.save()
-
+    
     return redirect('/home')
 
 
@@ -259,12 +272,12 @@ def confirm(request,first_id):
     sch = get_object_or_404(Schedule, pk = first_id)
     nickname = User_account.objects.get( name = request.user)
     punish= Punish.objects.filter(schedule= sch).get(nick= nickname)
-    print(sch.date)
     timenow = datetime.now()
     timesche = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
     t = (timesche+timedelta(hours=9))-timenow 
     if t >= timedelta(hours=0) :
-        punish.delete()
+        punish.success = True
+        punish.save()
         nickname.user_money += int(sch.penalty)
         sch.group_ac.group_money -= int(sch.penalty)
         sch.group_ac.save()
@@ -273,3 +286,24 @@ def confirm(request,first_id):
     else:
         return redirect('/map')
 
+def scheDelete(request , first_id):
+    sche = get_object_or_404(Schedule, pk = first_id)
+    punishs = Punish.objects.filter(schedule = sche)
+    
+    for punish in punishs.all() :
+        if punish.success == False:
+            history = Group_history()
+            history.name = sche.title
+            history.date = sche.date
+            history.money = sche.penalty
+            history.us = punish.nick
+            history.save()
+
+    sche.delete()
+    return redirect('/home')
+
+def charge(request, user_id):
+    user = get_object_or_404(User_account, pk = user_id)
+    user.user_money +=10000
+    user.save()
+    return redirect('/home')
