@@ -25,7 +25,6 @@
     }
     
     .middle .no {
-        margin-left: 8rem;
         margin-top: 5rem;
         display: flex;
         justify-content: center;
@@ -118,7 +117,6 @@
     .middle{
         display: flex;
         flex-direction: column;
-        height: 20rem;
         background-color: #faf8f8;
         /* text-align: center; */
         /* align-items: center; */
@@ -314,8 +312,8 @@
 
     {% if not inv_list %}
     <div class="middle">
-        <div class="no" style=" margin-left: 8rem; margin-top: 5rem;display: flex;justify-content: center;text-align: center;">
-            <span id="nocheck" style="text-align: center;font-weight: bold;color: #9c9c9c;font-size: xx-large;">받은 초대장이 없습니다.</span>
+        <div class="no" style=" margin-top: 5rem;display: flex;justify-content: center;text-align: center;">
+            <span id="nocheck" style="text-align: center;font-weight: bold;color: #9c9c9c;font-size: xx-large;">받은 초대장이 없습니다</span>
         </div>
     </div>
     {% else %}

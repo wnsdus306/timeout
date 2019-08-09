@@ -72,14 +72,7 @@ a{
 }
 
 #section2 {
-<<<<<<< HEAD
     background-color : white;
-=======
-    background-image: url(\).png);
-    background-position: left bottom;
-    background-size: cover;
-    padding: 6% 0 0 0;
->>>>>>> dc09ca498bfb6a0024b1b9eb2e99e9c7b3d9c74d
 }
 
 
@@ -248,17 +241,12 @@ a{
 .third-left {
     position: relative;
     float: left;
-<<<<<<< HEAD
     margin-left: 5rem;
 }
 .third-left #img1{
     margin-top: 10rem;
     width :55rem;
     height: auto;
-=======
-    align-items: center;
-    margin-left: 17rem;
->>>>>>> dc09ca498bfb6a0024b1b9eb2e99e9c7b3d9c74d
 }
 
 
