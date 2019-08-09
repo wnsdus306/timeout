@@ -188,6 +188,7 @@
         transition: all 0.3s ease-in-out;
     }
     
+    
      /* 스크롤바 */
     ::-webkit-scrollbar {
         width: 0px;
@@ -238,13 +239,33 @@
 
     /* 하단 고정바 */
     .foot-bar{
-    height: 3.7rem;
-    background-color: rgb(42 182 212);
-    display: flex;
-    justify-content: space-between;
-    width: 37rem;
-    align-items: center;
-    margin: 0 auto;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 37rem;
+        align-items: center;
+        margin: 0 auto;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
     }
     

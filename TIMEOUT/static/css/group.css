@@ -248,12 +248,32 @@
         align-items: center;
         margin: 0 auto;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
 
     /* 스크롤바 */
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 0px;
         /* 세로축 스크롤바 길이 */
-        height: 20px;
+        height: 0px;
         /* 가로축 스크롤바 길이 */
     }
 
@@ -266,14 +286,14 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        border-radius: 8px;
+        border-radius: 0px;
         background-color: transparent;
     }
 
     ::-webkit-scrollbar-button {
         background-color:transparent;
-        width: 20px;
-        height: 10px;
+        width: 0px;
+        height: 0px;
     }
 
     ::-webkit-scrollbar-button:start {
@@ -547,16 +567,36 @@
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 37rem;
         align-items: center;
         margin: 0 auto;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
 
     /* 스크롤바 */
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 0px;
         /* 세로축 스크롤바 길이 */
-        height: 20px;
+        height: 0px;
         /* 가로축 스크롤바 길이 */
     }
 
@@ -569,14 +609,14 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        border-radius: 8px;
+        border-radius: 0px;
         background-color: transparent;
     }
 
     ::-webkit-scrollbar-button {
         background-color:transparent;
-        width: 20px;
-        height: 10px;
+        width: 0px;
+        height: 0px;
     }
 
     ::-webkit-scrollbar-button:start {
@@ -851,16 +891,36 @@
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 37rem;
         align-items: center;
         margin: 0 auto;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
 
     /* 스크롤바 */
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 0px;
         /* 세로축 스크롤바 길이 */
-        height: 20px;
+        height: 0px;
         /* 가로축 스크롤바 길이 */
     }
 
@@ -873,14 +933,14 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        border-radius: 8px;
+        border-radius: 0px;
         background-color: transparent;
     }
 
     ::-webkit-scrollbar-button {
         background-color:transparent;
-        width: 20px;
-        height: 10px;
+        width: 0px;
+        height: 0px;
     }
 
     ::-webkit-scrollbar-button:start {
