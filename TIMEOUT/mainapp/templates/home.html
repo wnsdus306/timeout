@@ -68,17 +68,17 @@
                     {% endfor %}
 
                     <div class="group-plus">
-                    <a href='{% url "invite" %}'>
-                        <div class="group-plus-plus">
-                            <img src="../static/img/group-plus-white.png">
-                        </div>
-                    </a>
+                        <a href='{% url "invite" %}'>
+                            <div class="group-plus-plus">
+                                <img src="../static/img/group-plus-white.png">
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
             <!--약속 리스트-->
             <div class="bottom">
-                <p id="schedule-list" style="color:black;">지켜야 할 약속   <a href='{% url "check" %}'>  초대장</a></p>
+                <p id="schedule-list" style="color:black;">지켜야 할 약속 <a href='{% url "check" %}'> 초대장</a></p>
                 <div class="schedule">
                     <span id="schedule-name">토익스터디</span>
                     <span id="schedule-date">19년 08월 1일 10시</span>
@@ -89,7 +89,10 @@
         </div>
         <!-- 하단 고정바 -->
         <div class="foot-bar">
-
+            <img id="foot-home" src="../static/img/home.png" alt="">
+            <img id="foot-invite" src="../static/img/invite.png" alt="">
+            <img id="foot-bell" src="../static/img/bell.png" alt="">
+            <img id="foot-user" src="../static/img/user.png" alt="">
         </div>
     </div>
     <script>
