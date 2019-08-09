@@ -22,9 +22,12 @@ def portfolio(request):
         us.name = request.user
         us.user_money = 0
         us.nickname = request.POST['nickname']
-        if us.image:
+        if us.image is None:
+            pass
+        else:
             us.image = request.FILES['image']
         us.save()
+        
         return redirect('/home')
     else:
         for user in users:
@@ -182,20 +185,21 @@ def create(request,group_id):
 
 
 def check(request):
+    inv_list=[]
     invitations = Invite.objects.all()
     us = User_account.objects.get(name = request.user)
-    invi_us = Invite()
-
-    for invi in invitations:
-        if invi.receive == us.nickname:
-            invi_us = Invite.objects.get(receive = us.nickname)
-            break
-    return render(request, 'check.html', {'invi_us':invi_us,'us':us})
+    for inv in invitations:
+        if inv.receive == us.nickname:
+            inv_list.append(inv)
 
 
-def yes(request):
+    
+    return render(request, 'check.html', {'inv_list':inv_list})
+
+
+def yes(request, inv_id):
     us = User_account.objects.get(name = request.user)
-    invi_us = Invite.objects.get(receive = us.nickname)
+    invi_us = get_object_or_404(Invite, pk=inv_id)
     invi_us.check = True
     invi_us.save()
     group = Group_account.objects.get(title = invi_us.title)
@@ -209,11 +213,7 @@ def yes(request):
 
 
 def no(request):
-    us = User_account.objects.get(name = request.user)
-    invi_us = Invite.objects.get(receive = us.nickname)
-    invi_us.check = False
-    invi_us.save()
-
+    
     return redirect('/home')
 
 
