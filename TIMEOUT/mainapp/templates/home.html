@@ -81,12 +81,17 @@
             <!--약속 리스트-->
             <div class="bottom">
                 <p id="schedule-list" style="color:black;">지켜야 할 약속 <a href='{% url "check" %}'> 초대장</a></p>
+                {% if not first %}
                 <div class="schedule">
-                    <span id="schedule-name">토익스터디</span>
-                    <span id="schedule-date">19년 08월 1일 10시</span>
-                    <span id="schedule-money">2000원</span>
+                    <span id="schedule-date">예정된 약속이 없습니다.</span>
                 </div>
-
+                {% else %}
+                <div class="schedule">
+                    <span id="schedule-name">{{first.title}}</span>
+                    <span id="schedule-date">{{first.date.year}}년 {{first.date.month}}월 {{first.date.day}}일 {{first.date.hour}}시</span>
+                    <span id="schedule-money">{{first.penalty}}원</span>
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- 하단 고정바 -->

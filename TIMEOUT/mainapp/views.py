@@ -51,7 +51,22 @@ def home(request):
             if member.name.username == request.user.username:
                 user_group.append(group)
 
-    return render(request, 'home.html',{'groups': user_group,'us':us})
+    nickname = User_account.objects.get(name = request.user)
+    punishs= Punish.objects.filter(nick=nickname).values('schedule_id')
+    sche = []
+    first = []
+    for key in punishs.all():
+        sche.append(Schedule.objects.get(pk = key['schedule_id']))
+    
+    sche.sort(key=lambda r:r.date)
+    
+    if not sche:
+        pass
+    else: 
+        first=sche.pop(0)
+        first.date += timedelta(hours=9)
+
+    return render(request, 'home.html',{'groups': user_group,'us':us, 'first':first})
 
     
 def invite(request):
