@@ -49,7 +49,9 @@
                         <h1 id="money" style="color:black;">{{us.user_money}}원</h1>
                         <div class="division">
                             <div class="mbutton"><span id="font">송금하기</span></div>
-                            <div class="mbutton2"><span id="font">구매하기</span></div>
+                            <div class="mbutton2">
+                                <a href="{% url 'charge' us.id %}"><span id="font">충전하기</span></a>
+                            </div>
                         </div>
                     </div>
 

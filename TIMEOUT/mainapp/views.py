@@ -286,3 +286,9 @@ def scheDelete(request , first_id):
 
     sche.delete()
     return redirect('/home')
+
+def charge(request, user_id):
+    user = get_object_or_404(User_account, pk = user_id)
+    user.user_money +=10000
+    user.save()
+    return redirect('/home')

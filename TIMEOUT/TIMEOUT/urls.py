@@ -39,5 +39,6 @@ urlpatterns = [
     path('search/', mainapp.views.search, name='search'),
     path('confirm/<int:first_id>', mainapp.views.confirm, name='confirm'),
     path('scheDelete/<int:first_id>', mainapp.views.scheDelete, name='scheDelete'),
+    path('home/charge/<int:user_id>', mainapp.views.charge , name='charge'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
