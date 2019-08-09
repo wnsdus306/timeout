@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -23,10 +22,10 @@
     </div>
 
     <!--계정-->
-    
+
     <form method='POST' action='{% url "search" %}'>
-    {% csrf_token %}
-    
+        {% csrf_token %}
+
         <div class="top">
             <!-- 그룹명 -->
             <div class="nameform">
@@ -39,40 +38,42 @@
         <div class="middle">
             <!-- 멤버선택 -->
             <div class="members">
-            {% for user in us_f_list%}
-            {% if not user.image%}
-            <img id="mimg" src="../static/img/basic.png" alt="">
-            <img id="delete" src="../static/img/delete.png" alt="">
-            {% else %}
-            <img id="mimg" src="{{user.image.url}}" alt="">
-            <img id="delete" src="../static/img/delete.png" alt="">
-            {% endif %}
-            {% endfor %}
-            </div> 
+                {% for user in us_f_list%}
+                {% if not user.image%}
+                <img id="mimg" src="../static/img/basic.png" alt="">
+                <img id="delete" src="../static/img/delete.png" alt="">
+                {% else %}
+                <img id="mimg" src="{{user.image.url}}" alt="">
+                <img id="delete" src="../static/img/delete.png" alt="">
+                {% endif %}
+                {% endfor %}
+            </div>
 
             <!-- 멤버검색 -->
             <div class="searching">
                 <input id="search" placeholder="Search" type='text' name='invite'>
                 <button id="sbutton" type='submit'><img id="search-img" src="../static/img/search.png" alt=""></button>
             </div>
-        
-        
-           
+
+
+
             <div class="container" id="new_test" style="display:flex;">
                 <div class="last">
-                        <a href='{% url "home" %}'><p id="submit">모임 생성</p></a>
+                    <a href='{% url "home" %}'>
+                        <p id="submit">모임 생성</p>
+                    </a>
                 </div>
             </div>
         </div>
     </form>
-    
+
 
     <!-- 하단 고정바 -->
     <div class="foot-bar">
-        <img id="foot-home" src="../static/img/home.png" alt="">
-        <img id="foot-invite" src="../static/img/invite.png" alt="">
-        <img id="foot-bell" src="../static/img/bell.png" alt="">
-        <img id="foot-user" src="../static/img/user.png" alt="">
+        <a href="{% url 'home' %}"><img id="foot-home" src="../static/img/home.png" alt=""></a>
+        <a href="{% url 'check' %}"><img id="foot-invite" src="../static/img/invite.png" alt=""></a>
+        <a href="{% url 'map' %}"><img id="foot-bell" src="../static/img/bell.png" alt=""></a>
+        <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
     </div>
 </body>
 

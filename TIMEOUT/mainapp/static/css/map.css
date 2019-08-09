@@ -526,12 +526,8 @@
     }
 
     /* 하단 고정바 */
-<<<<<<< HEAD
-    .foot-bar{
-=======
     .foot-bar {
         position: fixed;
->>>>>>> c13c0d179074f72ec45c85a9d83215eebbc0ba4f
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -836,12 +832,8 @@
     }
 
     /* 하단 고정바 */
-<<<<<<< HEAD
-    .foot-bar{
-=======
     .foot-bar {
         position: fixed;
->>>>>>> c13c0d179074f72ec45c85a9d83215eebbc0ba4f
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;

@@ -177,6 +177,25 @@
         align-items: center;
         margin: 0 auto;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
 }
 
 @media screen and (min-width:480px) and (max-width:550px){
@@ -354,9 +373,28 @@
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 37rem;
         align-items: center;
         margin: 0 auto;
+    }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
     }
 
 }

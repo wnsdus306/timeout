@@ -89,10 +89,10 @@
         </div>
         <!-- 하단 고정바 -->
         <div class="foot-bar">
-            <img id="foot-home" src="../static/img/home.png" alt="">
-            <img id="foot-invite" src="../static/img/invite.png" alt="">
-            <img id="foot-bell" src="../static/img/bell.png" alt="">
-            <img id="foot-user" src="../static/img/user.png" alt="">
+            <a href="{% url 'home' %}"><img id="foot-home" src="../static/img/home.png" alt=""></a>
+            <a href="{% url 'check' %}"><img id="foot-invite" src="../static/img/invite.png" alt=""></a>
+            <a href="{% url 'map' %}"><img id="foot-bell" src="../static/img/bell.png" alt=""></a>
+            <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
         </div>
     </div>
     <script>
