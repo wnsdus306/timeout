@@ -65,6 +65,7 @@ def invite(request):
     cnt_list =[]
     check = 0
 
+
     if request.method == 'POST':
 
         ############### 동일한 그룹이면 같은멤버 (수정해야함)##############
@@ -197,8 +198,17 @@ def map(request):
     
     return render(request, 'map.html')
 
+def delete(request):
+    user_id = request.POST['user_id']
+    us = get_object_or_404(User_account, pk=user_id)
+    invites = Invite.objects.all()
+    use = User_account.objects.get(name = request.user)
 
+    for iv in invites:
+        if iv.receive == us.nickname and iv.send == use.nickname:
+            iv.delete()
+            break 
+    return redirect('/invite')
+    
 def confirm(request):
     return redirect('/home')
-
-# def delete(request,user_id):
