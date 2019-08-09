@@ -72,10 +72,7 @@ a{
 }
 
 #section2 {
-    background-image: url(../img/background\(5\).png);
-    background-position: left bottom;
-    background-size: cover;
-    padding: 6% 0 0 0;
+    background-color : white;
 }
 
 #section3 {
@@ -112,16 +109,34 @@ a{
     font-weight: lighter;
     color: white;
     margin-left: 0.2rem;
-    line-height: 1.6rem;
+    line-height: 2.3rem;
 }
 
-/* .first-right{
+.first-right{
     position: relative;
 }
+
+.first-right .triangle{
+    position:absolute;
+    float: right;
+    margin-left: 50rem;
+    margin-top: -3rem;
+    width:0px;height:0px;
+    border-right:43rem solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-bottom:60rem solid white; /*border를 사용해 두께를 만든다.*/
+    transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+}
+
+
 .first-right #img1{
     position:absolute;
-    width :25rem;
+    width :40rem;
     height: auto;
+    margin-top: 20rem;
 }
 .first-right #img2{
     position:absolute;
@@ -129,9 +144,9 @@ a{
     margin-left: 10rem;
     width :10rem;
     height: auto;
-} */
+} 
 
-/* .first-comment{
+.first-comment{
     position: absolute;
     left: -60rem;
     width: 50rem;
@@ -148,7 +163,7 @@ a{
 
 @keyframes slide {
     100% { left: 0; }
-} */
+}
 
 
 /* second-page */
@@ -164,9 +179,25 @@ a{
     margin-left: 17rem;
 }
 
+.second-left .triangle{
+    position:absolute;
+    float: right;
+    margin-left: -19.8rem;
+    margin-top: -12.3rem;
+    width:0px;height:0px;
+    border-right:43rem solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-bottom:60rem solid rgb(42 182 212); /*border를 사용해 두께를 만든다.*/
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform:rotate(90deg);
+}
+
+
 .second-left #phone-img {
     position :relative;
-    top: 0rem;
+    top: 6rem;
     width : 25rem;
     height: 43rem;
 }
@@ -174,7 +205,7 @@ a{
 .second-left #screen {
     margin-left: 3.5rem;
     position: absolute;
-    top: 5.2rem;
+    top:11.2rem;
     left: 0.2rem;
     width : 14.75rem;
     height: 27rem;
@@ -183,23 +214,26 @@ a{
 .second-right {
     /* position: relative; */
     float:right;
+    margin-top: 5rem;
+    margin-right: 18rem;
 }
 
 .second-right .second-comment {
-    font-family: 'Eoe_Zno_M';
+    font-family: 'Eoe_Zno_B';
     align-items:right;
-    margin-top: 17rem;
+    margin-top: 15rem;
     /* margin-left: 5rem; */
-    font-size : 3rem;
-    color: white;
+    font-size : 3.6rem;
+    color: black;
+    line-height: 4rem;
 }
 
 .second-right .button{
     width: 30rem;
     justify-content: space-between;
-    margin-top: 7rem;
+    margin-top: 2rem;
     font-size: 1rem;
-    color: white;
+    color: black;
 }
 
 /* third page */
@@ -207,7 +241,12 @@ a{
     display: flex;
     position: relative;
     float: left;
-    margin-left: 17rem;
+    margin-left: 5rem;
+}
+.third-left #img1{
+    margin-top: 10rem;
+    width :55rem;
+    height: auto;
 }
 
 .third-right {
@@ -221,19 +260,22 @@ a{
 }
 
 
+
 .button1{
     cursor: pointer;
-    font-weight: bold;
+    font-family: Eoe_Zno_B;
+    font-size: large;
     width: 5rem;
     text-align: center;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid black;
     margin: 10px;
     padding-bottom: 15px;
 }
 
 .button2{
+    font-size: large;
     cursor: pointer;
-    font-weight: bold;
+    font-family: Eoe_Zno_B;
     width: 5rem;
     text-align: center;
     margin: 10px;
@@ -241,8 +283,9 @@ a{
 }
 
 .button3 {
+    font-size: large;
     cursor: pointer;
-    font-weight: bold;
+    font-family: Eoe_Zno_B;
     width: 5rem;
     text-align: center;
     margin: 10px;
@@ -250,8 +293,9 @@ a{
 }
 
 .button4{
+    font-size: large;
+    font-family: Eoe_Zno_B;
     cursor: pointer;
-    font-weight: bold;
     width: 5rem;
     text-align: center;
     margin: 10px;
@@ -259,9 +303,12 @@ a{
 }
 
 #button-text{
+    color: black;
+    font-family: Eoe_Zno_M;
+    font-size: large;
+}
+.text-margin{
     margin-left: 10px;
-
-    
 }
 
 /* banner 띄우기 */
@@ -475,22 +522,7 @@ h1{
 }
 
 /* third page */
-.third-left {
-    display: flex;
-    position: relative;
-    float: left;
-    margin-left: 17rem;
-}
 
-.third-right {
-    display: flex;
-    position: relative;
-    float: right;
-    margin-right: 17rem;
-    color: black;
-    font-size: 4rem;
-    align-items: center;
-}
 
 
 .button1{
