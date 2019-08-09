@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Group_account,User_account,User_history,Schedule, Invite,Punish
+from .models import Group_account,User_account,User_history,Schedule, Invite,Punish,Group_history
 from django.conf import settings
 from datetime import datetime, timezone, timedelta
 from django.utils import timezone
@@ -153,8 +153,8 @@ def logout(request):
 def group(request,group_id):
     group = get_object_or_404(Group_account, pk=group_id)
     sche= Schedule.objects.filter(group_ac = group)
-
-    return render(request, 'group.html',{'group' : group, 'schedules': sche})
+    history = Group_history.objects.all().order_by('-id')
+    return render(request, 'group.html',{'group' : group, 'schedules': sche, 'histories':history})
 
 
 def newSchedule(request,group_id): 
@@ -259,12 +259,12 @@ def confirm(request,first_id):
     sch = get_object_or_404(Schedule, pk = first_id)
     nickname = User_account.objects.get( name = request.user)
     punish= Punish.objects.filter(schedule= sch).get(nick= nickname)
-    print(sch.date)
     timenow = datetime.now()
     timesche = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
     t = (timesche+timedelta(hours=9))-timenow 
     if t >= timedelta(hours=0) :
-        punish.delete()
+        punish.success = True
+        punish.save()
         nickname.user_money += int(sch.penalty)
         sch.group_ac.group_money -= int(sch.penalty)
         sch.group_ac.save()
@@ -273,3 +273,18 @@ def confirm(request,first_id):
     else:
         return redirect('/map')
 
+def scheDelete(request , first_id):
+    sche = get_object_or_404(Schedule, pk = first_id)
+    punishs = Punish.objects.filter(schedule = sche)
+    
+    for punish in punishs.all() :
+        if punish.success == False:
+            history = Group_history()
+            history.name = sche.title
+            history.date = sche.date
+            history.money = sche.penalty
+            history.us = punish.nick
+            history.save()
+
+    sche.delete()
+    return redirect('/home')

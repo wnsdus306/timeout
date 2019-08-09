@@ -71,46 +71,13 @@
                 </div>
             </div>
             <div class="account-content">
+                {% for history in histories%}
                 <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
+                    <span id="member-date">{{history.date.month}}.{{history.date.day}}</span>
+                    <span id="member-name">{{history.us}}({{history.name}} 지각비)</span>
+                    <span id="member-money">{{history.money}}원</span>
                 </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">이윤정(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
-                <div class="member-content">
-                    <span id="member-date">07.28</span>
-                    <span id="member-name">정혜지(코딩스터디 지각비)</span>
-                    <span id="member-money">3000원</span>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <!-- 하단 고정바 -->

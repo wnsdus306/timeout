@@ -66,7 +66,7 @@
                             {% endif %}
                             {% endfor %}
                         </div>
-                        <a href="{% url 'confirm' %}"><button type="button" class="btn btn-danger"
+                        <a href="{% url 'confirm' first.id %}"><button type="button" class="btn btn-danger"
                                 id="timeout">인증하기</button></a>
 
                     </div>
@@ -111,9 +111,9 @@
     </script>
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date("08 09 2019 23:58:55").getTime();
+        //var countDownDate = new Date("08 11 2019 01:44:50").getTime();
 
-        // var countDownDate = new Date("{{first.date.month}} {{first.date.day}}, {{first.date.year}} {{first.date.hour}}:{{first.date.minute}}:{{first.date.second}}").getTime();
+        var countDownDate = new Date("{{first.date.month}} {{first.date.day}}, {{first.date.year}} {{first.date.hour}}:{{first.date.minute}}:{{first.date.second}}").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function () {
@@ -137,7 +137,7 @@
             // If the count down is over, write some text 
             if (distance < 0) {
                 clearInterval(x);
-                window.location.href = "http://www.naver.com"
+                window.location.href = "{% url 'scheDelete' first.id %}"
                 // clearInterval(x);
                 // document.getElementById("demo").innerHTML = "EXPIRED"; 
             }
