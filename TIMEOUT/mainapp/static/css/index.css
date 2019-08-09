@@ -72,7 +72,7 @@ a{
 }
 
 #section2 {
-    background-image: url(../img/background\(5\).png);
+    background-image: url(\).png);
     background-position: left bottom;
     background-size: cover;
     padding: 6% 0 0 0;
@@ -197,15 +197,22 @@ a{
 }
 
 /* third page */
-.third-left {
+.third {
+    flex-direction:column;
+    margin-top: 400px;
     display: flex;
+    justify-content: space-between;
+}
+
+.third-left {
     position: relative;
     float: left;
+    align-items: center;
     margin-left: 17rem;
 }
 
+
 .third-right {
-    display: flex;
     position: relative;
     float: right;
     margin-right: 17rem;
@@ -214,6 +221,27 @@ a{
     align-items: center;
 }
 
+#img{
+    margin-top: 15rem;
+}
+
+.third-center {
+    width: 90rem;
+    font-size: 4rem;
+    margin-top: 0rem;
+    margin: 0 auto;
+}
+
+.third-center h4 {
+    color: white;
+    margin-top: -25%;
+    text-align: center;
+}
+.third-center #like{
+    color: white;
+    margin-top: -25%;
+    text-align: center;
+}
 
 .button1{
     cursor: pointer;

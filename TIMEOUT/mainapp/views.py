@@ -275,7 +275,7 @@ def confirm(request,first_id):
     timenow = datetime.now()
     timesche = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
     t = (timesche+timedelta(hours=9))-timenow 
-    if t >= timedelta(hours=0) :
+    if t > timedelta(hours=0) :
         punish.success = True
         punish.save()
         nickname.user_money += int(sch.penalty)

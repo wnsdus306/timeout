@@ -38,15 +38,24 @@
         <div class="middle">
             <!-- 멤버선택 -->
             <div class="members">
+                <!-- <div class="each"> -->
                 {% for user in us_f_list%}
                 {% if not user.image%}
                 <img id="mimg" src="../static/img/basic.png" alt="">
                 <img id="delete" src="../static/img/delete.png" alt="">
+                <p>{{user.nickname}}</p>
+                <!-- </div> -->
                 {% else %}
+
+                <!-- <div class="each"> -->
                 <img id="mimg" src="{{user.image.url}}" alt="">
                 <img id="delete" src="../static/img/delete.png" alt="">
+                <p>{{user.nickname}}</p>
                 {% endif %}
                 {% endfor %}
+                <!-- </div> -->
+
+
             </div>
 
             <!-- 멤버검색 -->
