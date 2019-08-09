@@ -22,9 +22,7 @@ def portfolio(request):
         us.name = request.user
         us.user_money = 0
         us.nickname = request.POST['nickname']
-        if us.image is None:
-            pass
-        else:
+        if bool(request.FILES.get('image',False)) == True:
             us.image = request.FILES['image']
         us.save()
         
