@@ -57,7 +57,7 @@
                             {% endif %}
                             {% endfor %}
                         </div>
-                        <a href= "{% url 'confirm' %}"><button type="button" class="btn btn-danger" id="timeout">인증하기</button></a>
+                        <a href= "{% url 'confirm' first.id %}"><button type="button" class="btn btn-danger" id="timeout">인증하기</button></a>
 
                     </div>
                 </div>
@@ -66,16 +66,16 @@
 
 
             <!-- 약속 순서대로 정렬  -->
-            {% for s in schedule %}
             <div class="bottom">
                 <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
+                {% for s in schedule %}
                 <div class="schedule">
                     <span id="schedule-name">{{s.title}}</span>
                     <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일 {{s.date.hour}}시</span>
                     <span id="schedule-money">{{s.penalty}}원</span>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
             {% endif %}
             <!-- 하단 고정바 -->
             <div class="foot-bar">
