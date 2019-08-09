@@ -49,3 +49,10 @@ class Invite(models.Model):
     def __str__(self):
         return self.send + '->' +self.receive
 
+class Punish(models.Model):
+    nick = models.CharField(max_length =100, null= True, blank = True)
+    success = models.BooleanField(null=True, blank=True)
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE, null = True)
+
+    def __str__(self):
+        return self.nick

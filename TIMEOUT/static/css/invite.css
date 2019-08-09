@@ -325,6 +325,8 @@
         margin: 0 auto;
         display: flex;
         align-items: center;
+        text-align:center;
+        justify-content:center;
     }
     
     #submit {
@@ -337,6 +339,7 @@
         width: 200px;
         color: white;
         box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+         text-align:center;
     }
     #submit:hover { 
         transform: translateY(-3px);
@@ -348,13 +351,33 @@
     
     /* 하단 고정바 */
     .foot-bar{
-    height: 3.7rem;
-    background-color: rgb(42 182 212);
-    display: flex;
-    justify-content: space-between;
-    width: 37rem;
-    align-items: center;
-    margin: 0 auto;
+        height: 3.7rem;
+        background-color: rgb(42 182 212);
+        display: flex;
+        justify-content: space-between;
+        width: 37rem;
+        align-items: center;
+        margin: 0 auto;
     }
+    
+    #foot-home{
+        width: auto;
+        height: 2.5rem;
+        margin-left:4rem;
+    }
+    #foot-invite{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-bell{
+        width: auto;
+        height: 2.5rem;
+    }
+    #foot-user{
+        width: auto;
+        height: 2.5rem;
+        margin-right:4rem;
+    }
+    
     }
     

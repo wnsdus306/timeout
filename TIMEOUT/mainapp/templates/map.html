@@ -30,55 +30,53 @@
                 <a href="./index.html"><img id="logo" src="../static/img//로고화이트.png" alt=""></a>
                 <a href="./"><img id="icon2" src="../static/img/bell.png" alt=""></a>
             </div>
-
+            {% if not first %}
+            <br><br><br><br>
+            <h1>약속이없습니다.</h1>
+            {% else %}
             <!-- 지도인증 부분 -->
             <div class="arrive">
                 <div class="map">
-                    <span id="reach">타임인증하기</span>
+                    <span id="reach-mobile">타임인증하기</span>
                     <div id="map"></div>
                     <!-- style="width:50%;height:400px; -->
                 </div>
                 <div class="map-bottom">
                     <div class="arrive-content">
-                        <span id="group-name">타임그룹 : "멋쟁이사자처럼"</span>
-                        <div class="group-img">
-                            <!-- <img id="member-img" src="../static/img/계정이미지.jpg"> -->
-                        </div>
-                        <span id="schedule">약속내용 : 조모임 18시</span>
+                        <span id="reach-pc">타임인증하기</span>
+                        <span id="group-name">그룹 : {{first.group_ac.title}}</span>
+                        <span id="schedule">약속내용 : {{first.title}} {{first.date.hour}}시 {{first.date.minute}}분</span>
                     </div>
                     <div class="arrive-button">
-                        <button type="button" class="btn btn-danger" id="timeout">인증하기</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- 약속 순서대로 정렬 -->
-            <!-- <div class="bottom">
-                <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
-                <div class="schedule">
-                    <span id="schedule-name">토익스터디</span>
-                    <span id="schedule-date">19년 08월 1일 10시</span>
-                    <span id="schedule-money">2000원</span>
-                </div>
-                <div class="schedule">
-                        <span id="schedule-name">토익스터디</span>
-                        <span id="schedule-date">19년 08월 1일 10시</span>
-                        <span id="schedule-money">2000원</span>
-                    </div>
-                    <div class="schedule">
-                            <span id="schedule-name">토익스터디</span>
-                            <span id="schedule-date">19년 08월 1일 10시</span>
-                            <span id="schedule-money">2000원</span>
+                        <div class="group-img">
+                            {% for first_img in first.group_ac.members.all %}
+                            {% if not us.image %}
+                            <img id="member-img" src="../static/img/basic.png">
+                            {% else %}
+                            <img id="member-img" src="{{first_img.image.url}}">
+                            {% endif %}
+                            {% endfor %}
                         </div>
-                        <div class="schedule">
-                    <span id="schedule-name">토익스터디</span>
-                    <span id="schedule-date">19년 08월 1일 10시</span>
-                    <span id="schedule-money">2000원</span>
+                        <a href= "{% url 'confirm' first.id %}"><button type="button" class="btn btn-danger" id="timeout">인증하기</button></a>
+
+                    </div>
                 </div>
+            </div>
+            
 
-            </div> -->
 
+            <!-- 약속 순서대로 정렬  -->
+            <div class="bottom">
+                <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
+                {% for s in schedule %}
+                <div class="schedule">
+                    <span id="schedule-name">{{s.title}}</span>
+                    <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일 {{s.date.hour}}시</span>
+                    <span id="schedule-money">{{s.penalty}}원</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
             <!-- 하단 고정바 -->
             <div class="foot-bar">
                 <img id="foot-home" src="../static/img/home.png" alt="">
@@ -94,7 +92,7 @@
     <script>
         var mapOptions = {
             center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
+            zoom: 10,
         };
 
         var map = new naver.maps.Map('map', mapOptions);
