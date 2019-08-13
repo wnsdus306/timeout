@@ -166,7 +166,7 @@ def logout(request):
 def group(request,group_id):
     group = get_object_or_404(Group_account, pk=group_id)
     sche= Schedule.objects.filter(group_ac = group)
-    history = Group_history.objects.all().order_by('-id')
+    history = Group_history.objects.filter( g = group).order_by('-id')
     return render(request, 'group.html',{'group' : group, 'schedules': sche, 'histories':history})
 
 
@@ -201,6 +201,7 @@ def check(request):
     inv_list=[]
     invitations = Invite.objects.all()
     us = User_account.objects.get(name = request.user)
+
     for inv in invitations:
         if inv.receive == us.nickname:
             inv_list.append(inv)
@@ -275,7 +276,7 @@ def confirm(request,first_id):
     timenow = datetime.now()
     timesche = datetime(sch.date.year, sch.date.month, sch.date.day, sch.date.hour, sch.date.minute, sch.date.second)
     t = (timesche+timedelta(hours=9))-timenow 
-    if t >= timedelta(hours=0) :
+    if t > timedelta(hours=0) :
         punish.success = True
         punish.save()
         nickname.user_money += int(sch.penalty)
@@ -297,6 +298,7 @@ def scheDelete(request , first_id):
             history.date = sche.date
             history.money = sche.penalty
             history.us = punish.nick
+            history.g = sche.group_ac
             history.save()
 
     sche.delete()
