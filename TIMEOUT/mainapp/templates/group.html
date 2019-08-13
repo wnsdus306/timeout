@@ -37,23 +37,33 @@
             <div class="group-thumbnail">
                 <span id="name">{{group.title}}</span>
                 <!-- <span id="group">&nbsp모임</span> -->
-                <br><br>
-                {% for member in group.members.all%}
-                {% if not member.image%}
-                <img id="thumbnail" src="../static/img/basic.png" alt="">
-                {% else %}
-                <img id="thumbnail" src="{{member.image.url}}" alt="">
-                {% endif %}
-                {{member.nickname}}
+                <div class="group-members">
+                    {% for member in group.members.all%}
+                    {% if not member.image%}
+                    <div class="one-member">
+                        <img id="thumbnail" src="../static/img/basic.png" alt="">
+                        <p id="nickname">{{member.nickname}}</p>
+                    </div>
+                    {% else %}
+                    <div id="one-member">
+                        <img id="thumbnail" src="{{member.image.url}}" alt="">
+                        <p id="nickname">{{member.nickname}}</p>
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="schedule-scroll">
+                {% for s in schedules.all %}
+                <div class="schedule">
+                    <span id="schedule-name">{{s.title}}</span>
+                    <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일</span>
+                    <span id="schedule-money">{{s.penalty}}원</span>
+                </div>
                 {% endfor %}
             </div>
-            {% for s in schedules.all %}
-            <div class="schedule">
-                <span id="schedule-name">{{s.title}}</span>
-                <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일</span>
-                <span id="schedule-money">{{s.penalty}}원</span>
-            </div>
-            {% endfor %}
+
             <!-- 누르면 모달창 띄우기 -->
             <div class="schedule-plus">
                 <a href="{% url 'newSche' group.id %}">
