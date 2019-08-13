@@ -63,7 +63,7 @@
                     <div class="arrive-button">
                         <div class="group-img">
                             {% for first_img in first.group_ac.members.all %}
-                            {% if not us.image %}
+                            {% if not first_img.image %}
                             <img id="member-img" src="../static/img/basic.png">
                             {% else %}
                             <img id="member-img" src="{{first_img.image.url}}">

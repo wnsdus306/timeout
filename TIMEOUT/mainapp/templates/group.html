@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="account-content">
-                {% for history in histories%}
+                {% for history in histories.all%}
                 <div class="member-content">
                     <span id="member-date">{{history.date.month}}.{{history.date.day}}</span>
                     <span id="member-name">{{history.us}}({{history.name}} 지각비)</span>

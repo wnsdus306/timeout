@@ -61,7 +61,7 @@ class Group_history(models.Model):
     name = models.CharField(max_length=100 , null=True, blank =True)
     date = models.DateTimeField('data published',null =True , blank =True)
     money = models.IntegerField(null = True, blank=True)
-    us = models.CharField(max_length = 100 , null=True, blank =True)
-
+    us = models.CharField(max_length = 100  , null=True, blank =True)
+    g = models.ForeignKey(Group_account, on_delete=models.CASCADE, null =True)
     def __str__(self):
         return self.name
