@@ -191,7 +191,7 @@
     /* 내역전체 감싸는 태그  */
     .account-content{
         width: 35rem;
-        max-height: 10rem;
+        height: 10rem;
         margin-left: 1rem;
         background-color: rgb(188 224 253);
         overflow: auto;
@@ -397,7 +397,7 @@
     /* 스케줄 이름 */
     .schedule{
         width : 94%;
-        height: 2rem;
+        max-height: 5rem;
         margin-left: 1rem;
         margin-right: 1rem;
         margin-bottom:0.5rem;

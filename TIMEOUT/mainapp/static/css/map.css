@@ -8,7 +8,7 @@
 
     .page {
         width: 37rem;
-        height: 53.5rem;
+        height: 35rem;
         background-color: #faf8f8;
         /* margin-top: 3%; */
     }
@@ -67,7 +67,7 @@
         display: flex;
         justify-content: space-between;
         background-color: #faf8f8;
-        overflow :scroll;
+
     }
 
     /* 지도 */
@@ -161,13 +161,17 @@
         width: 37rem;
         margin: 0 auto;
         margin-top: .6rem;
-        overflow: auto;
     }
     #schedule-list {
         font-weight: bold;
         font-size: large;
         padding-top: 1.5rem;
         padding-left: 1.5rem;
+    }
+    
+    .schedule-scroll {
+        height: 6.5rem;
+        overflow: scroll;
     }
 
     .schedule {
@@ -384,7 +388,6 @@
         flex-direction: column;
         /* justify-content: space-between; */
         background-color: #faf8f8;
-        overflow: scroll;
     }
 
     .map {
@@ -494,6 +497,11 @@
         font-size: large;
         padding-top: 1.5rem;
         padding-left: 1.5rem;
+    }
+
+    .schedule-scroll {
+        height: 6.5rem;
+        overflow: scroll;
     }
 
     .schedule {
@@ -690,7 +698,6 @@
         flex-direction: column;
         /* justify-content: space-between; */
         background-color: #faf8f8;
-        overflow: scroll;
     }
 
     .map {
@@ -800,6 +807,11 @@
         font-size: large;
         padding-top: 1.5rem;
         padding-left: 1.5rem;
+    }
+    
+    .schedule-scroll {
+        height: 6.5rem;
+        overflow: scroll;
     }
 
     .schedule {

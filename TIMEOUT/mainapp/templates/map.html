@@ -81,17 +81,21 @@
 
 
 
-            <!-- 약속 순서대로 정렬  -->
-            {% for s in schedule %}
             <div class="bottom">
                 <p id="schedule-list" style="color:black;">지켜야 할 약속</p>
-                <div class="schedule">
-                    <span id="schedule-name">{{s.title}}</span>
-                    <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일 {{s.date.hour}}시</span>
-                    <span id="schedule-money">{{s.penalty}}원</span>
+                <!-- 약속 순서대로 정렬  -->
+                <div class="schedule-scroll">
+                    {% for s in schedule %}
+                    <div class="schedule">
+                        <span id="schedule-name">{{s.title}}</span>
+                        <span id="schedule-date">{{s.date.year}}년 {{s.date.month}}월 {{s.date.day}}일 {{s.date.hour}}시</span>
+                        <span id="schedule-money">{{s.penalty}}원</span>
+                    </div>
+                    {% endfor %}
                 </div>
+
+
             </div>
-            {% endfor %}
             {% endif %}
             <!-- 하단 고정바 -->
             <div class="foot-bar">
