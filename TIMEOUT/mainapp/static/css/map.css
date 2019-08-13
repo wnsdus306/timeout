@@ -7,9 +7,8 @@
     }
 
     .page {
-        max-height: 100%;
         width: 37rem;
-        height: auto;
+        height: 53.5rem;
         background-color: #faf8f8;
         /* margin-top: 3%; */
     }

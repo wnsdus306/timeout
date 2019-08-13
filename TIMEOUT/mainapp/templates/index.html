@@ -2,7 +2,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Background images - fullPage.js</title>
     <meta name="author" content="Alvaro Trigo Lopez" />
     <meta name="description" content="fullPage full-screen backgrounds." />
     <meta name="keywords" content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
@@ -36,8 +35,64 @@
     <script>
         new WOW().init(); 
     </script>
+
 </head>
 
+<style>
+    /* bold */
+@font-face { font-family: 'Eoe_Zno_B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_B.woff') format('woff'); font-weight: normal; font-style: normal; }
+    #third {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.third-left {
+    margin-top: 1rem;
+    margin-left: 10rem;
+    /* position: relative; */
+    float: left;
+
+
+}
+#img{
+    height: auto;
+    width: 60rem;
+    margin-left: -10rem;
+
+}
+    .third-right {
+    /* position: relative; */
+    margin-top: 15rem;
+    float:right;
+    margin-right: 25rem;
+}
+
+.third-right .third-comment #last{
+    /* margin-right: 5rem; */
+    font-size : 2.5rem;
+    color: rgb(42 182 212);
+    margin-bottom:2rem;
+    font-family: 'Eoe_Zno_B';
+}
+.third-right .triangle{
+    position:absolute;
+    float: right;
+    margin-left: 50rem;
+    margin-top: -3rem;
+    width:0px;height:0px;
+    border-right:43rem solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-bottom:60rem solid rgb(42 182 212); /*border를 사용해 두께를 만든다.*/
+    transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+}
+
+    </style>
 <body>
     <!-- html -->
     <!-- navbar -->
@@ -73,40 +128,55 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="first-right">
-                <img id="" src="../static/img/일러스트.png">
-            </div> -->
+            <div class="first-right">
+                <div class="triangle"></div>
+                <img id="img1" src="../static/img/일러스트1.png">
+            </div>
         </div>
         <div class="section" id="section2">
             <div class="section">
                 <div class="second">
                     <div class="second-left">
+                        <div class="triangle"></div>
                         <div class="phone">
                             <!-- 휴대폰 큰 틀 -->
                             <img id="phone-img" src="../static/img/phone.png" alt="">
                             <!-- 휴대폰 안에 내용 -->
-                            <img id="screen" name="screen" src="../static/img/내페이지(1).jpg">
+                            <img id="screen" name="screen" src="../static/img/제안.png">
                         </div>
                     </div>
                     <div class="second-right">
                         <div class="second-comment">
-                            <span>으으으악</span>
+                            <span>당신의 약속,<br>타임아웃과 <span style="color: rgb(42 182 212)">함께</span>라면</span>
                         </div>
                         <div class="button">
-                            <span class="button1" onclick="ChangeImage1()">내페이지</span>
-                            <span class="button2" onclick="ChangeImage2()">계좌내역</span>
-                            <span class="button3" onclick="ChangeImage3()">도착인증</span>
-                            <span class="button4" onclick="ChangeImage4()">미니게임</span>
+                            <span class="button1" onclick="ChangeImage1()">제안하기</span>
+                            <span class="button2" onclick="ChangeImage2()">내페이지</span>
+                            <span class="button3" onclick="ChangeImage3()">모임약속</span>
+                            <span class="button4" onclick="ChangeImage4()">약속인증</span>
                             <br><br><br>
-                            <span id="button-text"> 설명을 하자꾸나 </span>
+                            <div class="text-margin">
+                                <span id="button-text">많은 사람, 다양한 약속!<br>모임 약속 관리를 제안해보세요</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section" id="section3">
+        <!-- <div class="section" id="section3">
             <div class="section">
+<<<<<<< HEAD
+                <div id="third">
+                    <div class="third-left">
+                        <img id="img" src="../static/img/일러스트2.png" >
+                    </div>
+                    <div class="third-right">
+                        <div class="triangle"></div>
+                        <div class="third-comment">
+                            <span id="last" style="color: rgb(42 182 212);">지금 바로,<br>타임아웃과의<br>소중한 약속을</span>
+                        </div>
+=======
                 <div class="third">
                     <div class="third-left">
                     </div>
@@ -121,10 +191,11 @@
                     <div class="third-center" >
                         <h4>지금 바로 타임아웃을 경험해보세요</h4>
                         <p id="like">LIKE LION at KNU</p>
+>>>>>>> dc09ca498bfb6a0024b1b9eb2e99e9c7b3d9c74d
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- floatMenu -->
@@ -158,19 +229,19 @@
     <!-- 버튼누르면 사진바뀌는 스크립트 -->
     <script type="text/javascript">
         function ChangeImage1() {
-            document.screen.src = "../static/img/내페이지(1).jpg"
+            document.screen.src = "../static/img/제안.png"
         }
 
         function ChangeImage2() {
-            document.screen.src = "../static/img/계좌내역(1).jpg"
+            document.screen.src = "../static/img/내페이지.png"
         }
 
         function ChangeImage3() {
-            document.screen.src = "../static/img/도착시간인증(1).jpg"
+            document.screen.src = "../static/img/그룹.png"
         }
 
         function ChangeImage4() {
-            document.screen.src = "../static/img/미니게임(1).jpg"
+            document.screen.src = "../static/img/도착인증.png"
         }
     </script>
 
@@ -178,22 +249,22 @@
     <script>
         $(document).ready(function () {
             $(".button1").click(function () {
-                $("#button-text").text("설명을 하자꾸나");
+                document.getElementById("button-text").innerHTML = "많은 사람, 다양한 약속!<br> 모임 약속 관리를 제안해보세요";
             });
         });
         $(document).ready(function () {
             $(".button2").click(function () {
-                $("#button-text").text("눈누난나");
+                document.getElementById("button-text").innerHTML = "나만의 페이지에서 나의 계좌와 모임계좌들을<br>한번에 살펴보고 관리하세요";
             });
         });
         $(document).ready(function () {
             $(".button3").click(function () {
-                $("#button-text").text("고작 밑줄따위에");
+                document.getElementById("button-text").innerHTML = "다양한 모임을 생성하고<br>많은 모임에 생성된 약속을 확인해보세요";
             });
         });
         $(document).ready(function () {
             $(".button4").click(function () {
-                $("#button-text").text("2시간쓴거 실화냐");
+                document.getElementById("button-text").innerHTML = "약속을 만들었다면 반드시 지키도록!<br>지킬 수 밖에 없는 타임아웃을 사용하세요";
             });
         });
     </script>
@@ -201,34 +272,34 @@
     <script>
         $(document).ready(function () {
             $(".button1").click(function () {
-                $(".button1").css('border-bottom', '2px solid white')
-                $(".button2").css('border-bottom', '0px solid white')
-                $(".button3").css('border-bottom', '0px solid white')
-                $(".button4").css('border-bottom', '0px solid white')
+                $(".button1").css('border-bottom', '2px solid black')
+                $(".button2").css('border-bottom', '0px solid black')
+                $(".button3").css('border-bottom', '0px solid black')
+                $(".button4").css('border-bottom', '0px solid black')
             });
         });
         $(document).ready(function () {
             $(".button2").click(function () {
-                $(".button1").css('border-bottom', '0px solid white')
-                $(".button2").css('border-bottom', '2px solid white')
-                $(".button3").css('border-bottom', '0px solid white')
-                $(".button4").css('border-bottom', '0px solid white')
+                $(".button1").css('border-bottom', '0px solid black')
+                $(".button2").css('border-bottom', '2px solid black')
+                $(".button3").css('border-bottom', '0px solid black')
+                $(".button4").css('border-bottom', '0px solid black')
             });
         });
         $(document).ready(function () {
             $(".button3").click(function () {
-                $(".button1").css('border-bottom', '0px solid white')
-                $(".button2").css('border-bottom', '0px solid white')
-                $(".button3").css('border-bottom', '2px solid white')
-                $(".button4").css('border-bottom', '0px solid white')
+                $(".button1").css('border-bottom', '0px solid black')
+                $(".button2").css('border-bottom', '0px solid black')
+                $(".button3").css('border-bottom', '2px solid black')
+                $(".button4").css('border-bottom', '0px solid black')
             });
         });
         $(document).ready(function () {
             $(".button4").click(function () {
-                $(".button1").css('border-bottom', '0px solid white')
-                $(".button2").css('border-bottom', '0px solid white')
-                $(".button3").css('border-bottom', '0px solid white')
-                $(".button4").css('border-bottom', '2px solid white')
+                $(".button1").css('border-bottom', '0px solid black')
+                $(".button2").css('border-bottom', '0px solid black')
+                $(".button3").css('border-bottom', '0px solid black')
+                $(".button4").css('border-bottom', '2px solid black')
             });
         });
     </script>

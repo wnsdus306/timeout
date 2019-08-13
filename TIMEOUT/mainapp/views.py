@@ -201,6 +201,7 @@ def check(request):
     inv_list=[]
     invitations = Invite.objects.all()
     us = User_account.objects.get(name = request.user)
+
     for inv in invitations:
         if inv.receive == us.nickname:
             inv_list.append(inv)
