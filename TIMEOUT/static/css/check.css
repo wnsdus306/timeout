@@ -9,6 +9,21 @@
     cursor: pointer;
     }
     
+    .middle .no {
+        margin-left: 8rem;
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #nocheck {
+        text-align: center;
+        font-weight: bold;
+        color: #9c9c9c;
+        font-size: xx-large;
+    }
+
     .close {
     width: 50px;
     height: 50px;
@@ -87,12 +102,14 @@
     /* 초대장목록 */
     .middle{
         display: flex;
-        height: 40rem;
+        flex-direction: column;
+        height: 20rem;
         background-color: #faf8f8;
         /* text-align: center; */
         /* align-items: center; */
         width: 37rem;
         margin: 0 auto;
+        overflow: scroll; 
     }
 
     .middle .card{
@@ -100,15 +117,18 @@
         height: 16rem;
         margin: 0 auto;
         margin-top: 2rem;
+        margin-bottom: 2rem;
         align-items: center;
         border: 2px solid rgb(188 224 253);
         background-color: white;
         border-radius: 20px;
+        
+
     }
     
     .card #title{
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
         font-size: 26px;
         font-weight: bold;
         color: rgb(42 182 212);
