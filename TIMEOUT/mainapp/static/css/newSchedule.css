@@ -8,14 +8,12 @@
 
     .page {
         width : 37rem;
-        height: 40rem;
+        height: 40rem; 
         background-color: #faf8f8;
-        /* margin-top: 3%; */
-        padding-bottom:1rem;
-
     }
     /* 상단 고정바 */
     .head-bar{
+        top: 0;
         position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -169,6 +167,8 @@
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom:0;
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -216,6 +216,7 @@
     }
     /* 상단 고정바 */
     .head-bar{
+        top:0;
         position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -369,6 +370,7 @@
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -399,6 +401,7 @@
     }
     /* 상단 고정바 */
     .head-bar{
+        top: 0;
         position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -552,6 +555,7 @@
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);

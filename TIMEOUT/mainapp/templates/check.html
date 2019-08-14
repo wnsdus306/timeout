@@ -123,6 +123,8 @@
         width: 37rem;
         margin: 0 auto;
         overflow: scroll; 
+        /* 상단바 고정시켰으니깐 안에 내용은 내려주기, 하단바도 */
+        margin-top: 3.7rem;
     }
 
     .middle .card{
@@ -312,8 +314,8 @@
 
     {% if not inv_list %}
     <div class="middle">
-        <div class="no" style=" margin-top: 5rem;display: flex;justify-content: center;text-align: center;">
-            <span id="nocheck" style="text-align: center;font-weight: bold;color: #9c9c9c;font-size: xx-large;">받은 초대장이 없습니다</span>
+        <div class="no" >
+            <span id="nocheck">받은 초대장이 없습니다</span>
         </div>
     </div>
     {% else %}
@@ -346,6 +348,7 @@
         <a href="{% url 'map' %}"><img id="foot-bell" src="../static/img/bell.png" alt=""></a>
         <a href="{% url 'portfolio' %}"><img id="foot-user" src="../static/img/user.png" alt=""></a>
     </div>
+
 </body>
 
 </html>
