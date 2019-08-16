@@ -24,7 +24,7 @@
 
     <!--계정-->
     
-    <form method='POST' action='{% url "invite" %}'>
+    <form method='POST' name='myForm'>
     {% csrf_token %}
     
         <div class="top">
@@ -56,6 +56,7 @@
             <div class="searching">
                 <input id="search" placeholder="Search" type='text' name='invite' value={{member}}>
                 <input type='image' src="../static/img/search.png" id="sbutton"  onclick='mySubmit(1)'>
+                <!--<button id="sbutton"><img id="search-img" src="../static/img/search.png" alt=""></button>-->
                 
             </div>
         
@@ -71,8 +72,8 @@
                     
                     <h1 id="sname">{{us_m.nickname}}</h1>
                 </div>
-                <input type='image'  src="../static/img/add.png" id="check"  value='OK' onclick='mySubmit(2)'>
-                
+                <input type='image'  src="../static/img/add.png" id="check"  onclick='mySubmit(2)'>
+                <!--<button type="submit" id="check"><img id="check-img" src="../static/img/add.png" alt=""></button>-->
             </div>
             <div class="container" id="new_test" style="display:flex;">
                 <div class="last">
