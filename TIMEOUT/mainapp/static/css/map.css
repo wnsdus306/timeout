@@ -8,13 +8,14 @@
 
     .page {
         width: 37rem;
-        height: 53.5rem;
+        height: 32rem;
         background-color: #faf8f8;
         /* margin-top: 3%; */
     }
 
     /* 상단 고정바 */
     .head-bar {
+        top:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -67,7 +68,7 @@
         display: flex;
         justify-content: space-between;
         background-color: #faf8f8;
-        overflow :scroll;
+
     }
 
     /* 지도 */
@@ -161,13 +162,17 @@
         width: 37rem;
         margin: 0 auto;
         margin-top: .6rem;
-        overflow: auto;
     }
     #schedule-list {
         font-weight: bold;
         font-size: large;
         padding-top: 1.5rem;
         padding-left: 1.5rem;
+    }
+    
+    .schedule-scroll {
+        height: 6.6rem;
+        overflow: scroll;
     }
 
     .schedule {
@@ -177,7 +182,7 @@
         background-color: rgb(84 103 143);
         border-radius: 1rem 1rem;
         text-align: center;
-        display: inline-block;
+        margin-bottom: .3rem;
     }
 
     .schedule #schedule-name {
@@ -224,18 +229,8 @@
 
     /* 하단 고정바 */
     .foot-bar {
-        position: fixed;
-        height: 3.7rem;
-        background-color: rgb(42 182 212);
-        display: flex;
-        justify-content: space-between;
-        width: 37rem;
-        align-items: center;
-        margin: 0 auto;
         bottom: 0;
-    }
-
-    .foot-bar{
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -331,6 +326,7 @@
 
     /* 상단 고정바 */
     .head-bar {
+        top:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -384,7 +380,6 @@
         flex-direction: column;
         /* justify-content: space-between; */
         background-color: #faf8f8;
-        overflow: scroll;
     }
 
     .map {
@@ -496,6 +491,11 @@
         padding-left: 1.5rem;
     }
 
+    .schedule-scroll {
+        height: 6.5rem;
+        overflow: scroll;
+    }
+
     .schedule {
         width: 90%;
         height: 3rem;
@@ -539,6 +539,7 @@
 
     /* 하단 고정바 */
     .foot-bar {
+        bottom: 0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -637,6 +638,7 @@
 
     /* 상단 고정바 */
     .head-bar {
+        top:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -690,7 +692,6 @@
         flex-direction: column;
         /* justify-content: space-between; */
         background-color: #faf8f8;
-        overflow: scroll;
     }
 
     .map {
@@ -802,6 +803,11 @@
         padding-left: 1.5rem;
     }
 
+    .schedule-scroll {
+        height: 6.5rem;
+        overflow: scroll;
+    }
+
     .schedule {
         width: 90%;
         height: 3rem;
@@ -845,6 +851,7 @@
 
     /* 하단 고정바 */
     .foot-bar {
+        bottom: 0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
