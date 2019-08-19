@@ -7,15 +7,15 @@
     }
 
     .page {
-        max-height: 100%;
         width: 37rem;
-        height: auto;
+        height: 32rem;
         background-color: #faf8f8;
         /* margin-top: 3%; */
     }
 
     /* 상단 고정바 */
     .head-bar {
+        top:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -62,17 +62,18 @@
         margin-right: auto;
         margin-left: auto;
         width: 35rem;
-        height: 20rem;
+        height: 25rem;
         border-radius: 3rem;
         border: 0.3rem solid rgb(42 182 212);
         display: flex;
         justify-content: space-between;
         background-color: #faf8f8;
-        overflow :scroll;
+
     }
 
     /* 지도 */
     .map {
+        margin-top: 2em;
         width: 50%;
         height: auto;
         /* margin : 1rem 1rem;
@@ -143,6 +144,7 @@
         width: 4rem;
         height: 4rem;
         border-radius: 50%;
+        margin-left: 1.5rem;
         margin-right: .2rem;
     }
     
@@ -160,13 +162,17 @@
         width: 37rem;
         margin: 0 auto;
         margin-top: .6rem;
-        overflow: auto;
     }
     #schedule-list {
         font-weight: bold;
         font-size: large;
         padding-top: 1.5rem;
         padding-left: 1.5rem;
+    }
+    
+    .schedule-scroll {
+        height: 6.6rem;
+        overflow: scroll;
     }
 
     .schedule {
@@ -176,7 +182,7 @@
         background-color: rgb(84 103 143);
         border-radius: 1rem 1rem;
         text-align: center;
-        display: inline-block;
+        margin-bottom: .3rem;
     }
 
     .schedule #schedule-name {
@@ -210,20 +216,21 @@
         font-size: large;
     }
 
-    /* 하단 고정바 */
-    .foot-bar {
-        position: fixed;
-        height: 3.7rem;
-        background-color: rgb(42 182 212);
-        display: flex;
-        justify-content: space-between;
-        width: 37rem;
-        align-items: center;
-        margin: 0 auto;
-        bottom: 0;
+    #red{
+        text-align: center;
+        margin-right: 2em;
+        margin-left: 2em;
+        height: 2em;
+    }
+    #demo{
+        margin-top: -0.5em;
+
     }
 
-    .foot-bar{
+    /* 하단 고정바 */
+    .foot-bar {
+        bottom: 0;
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -310,8 +317,8 @@
     }
 
     .page {
-        width: 100%;
-        height: auto;
+        width: 100vw;
+        height: 100vh;
         background-color: #faf8f8;
         /* margin-top: 3%; */
         /* padding-bottom:1rem; */
@@ -319,6 +326,7 @@
 
     /* 상단 고정바 */
     .head-bar {
+        top:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -359,6 +367,25 @@
         cursor: pointer;
     }
 
+    /* 약속이 없을 때 */
+    .no {
+        margin: 0 auto;
+        margin-top: 8rem;
+        display: flex;
+
+    }
+
+    .no #noarrive {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+        color: #9c9c9c;;
+        margin: 0 auto;
+
+    }
+
     /* 지도인증 부분 */
     .arrive {
         margin-top: 4.7rem;
@@ -372,7 +399,6 @@
         flex-direction: column;
         /* justify-content: space-between; */
         background-color: #faf8f8;
-        overflow: scroll;
     }
 
     .map {
@@ -387,7 +413,7 @@
         width: 95%;
         height: 18rem;
         margin: 0 auto;
-        border-radius: 4rem;
+        border-radius: 1rem;
     }
 
     .map #reach-mobile {
@@ -411,6 +437,7 @@
         flex-direction: column;
         width: 50%;
         justify-content: center;
+        margin-top: 7%;
     }
 
     .arrive-content #reach-pc {
@@ -431,6 +458,18 @@
         font-weight: bold;
         text-align: center;
         color: black;
+    }
+
+    #red{
+        text-align: center;
+        margin-top: 2%;
+        margin-right: 4%;
+        margin-left: 4%;
+        height: 2rem;
+    }
+    #demo{
+        margin-top: -0.5em;
+
     }
 
     .arrive-button {
@@ -465,23 +504,29 @@
 
     /* 아래(약속) 부분 */
     .bottom {
-        height: 10.5rem;
+        height: 11rem;
         background-color: #faf8f8;
         width: 95%;
         margin-top: 1rem;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 4.7rem;
-        overflow: scroll;
+        overflow: hidden;
         background-color: #f0f0f0;
+        border-radius: .5rem;
         ;
     }
 
     #schedule-list {
         font-weight: bold;
         font-size: large;
-        padding-top: 1.5rem;
-        padding-left: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+    }
+
+    .schedule-scroll {
+        height: 6.7rem;
+        overflow-y: scroll;
     }
 
     .schedule {
@@ -526,17 +571,14 @@
     }
 
     /* 하단 고정바 */
-<<<<<<< HEAD
-    .foot-bar{
-=======
     .foot-bar {
+        bottom: 0;
         position: fixed;
->>>>>>> c13c0d179074f72ec45c85a9d83215eebbc0ba4f
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 37rem;
+        width: 100vw;
         align-items: center;
         margin: 0 auto;
     }
@@ -544,7 +586,7 @@
     #foot-home{
         width: auto;
         height: 2.5rem;
-        margin-left:4rem;
+        margin-left:2.5rem;
     }
     #foot-invite{
         width: auto;
@@ -557,7 +599,7 @@
     #foot-user{
         width: auto;
         height: 2.5rem;
-        margin-right:4rem;
+        margin-right:2.5rem;
     }
     
 
@@ -620,8 +662,8 @@
     }
 
     .page {
-        width: 100%;
-        height: auto;
+        width: 100vw;
+        height: 100vh;
         background-color: #faf8f8;
         /* margin-top: 3%; */
         /* padding-bottom:1rem; */
@@ -629,6 +671,7 @@
 
     /* 상단 고정바 */
     .head-bar {
+        top:0;
         position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -669,6 +712,25 @@
         cursor: pointer;
     }
 
+    /* 약속이 없을 때 */
+    .no {
+        margin: 0 auto;
+        margin-top: 8rem;
+        display: flex;
+
+    }
+
+    .no #noarrive {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+        color: #9c9c9c;;
+        margin: 0 auto;
+
+    }
+
     /* 지도인증 부분 */
     .arrive {
         margin-top: 4.7rem;
@@ -682,7 +744,6 @@
         flex-direction: column;
         /* justify-content: space-between; */
         background-color: #faf8f8;
-        overflow: scroll;
     }
 
     .map {
@@ -697,7 +758,7 @@
         width: 95%;
         height: 18rem;
         margin: 0 auto;
-        border-radius: 4rem;
+        border-radius: 1rem;
     }
 
     .map #reach-mobile {
@@ -721,6 +782,7 @@
         flex-direction: column;
         width: 50%;
         justify-content: center;
+        margin-top: 7%;
     }
 
     .arrive-content #reach-pc {
@@ -741,6 +803,18 @@
         font-weight: bold;
         text-align: center;
         color: black;
+    }
+
+    #red{
+        text-align: center;
+        margin-top: 2%;
+        margin-right: 4%;
+        margin-left: 4%;
+        height: 2rem;
+    }
+    #demo{
+        margin-top: -0.5em;
+
     }
 
     .arrive-button {
@@ -775,23 +849,29 @@
 
     /* 아래(약속) 부분 */
     .bottom {
-        height: 10.5rem;
+        height: 11rem;
         background-color: #faf8f8;
         width: 95%;
         margin-top: 1rem;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 4.7rem;
-        overflow: scroll;
+        overflow: hidden;
         background-color: #f0f0f0;
+        border-radius: .5rem;
         ;
     }
 
     #schedule-list {
         font-weight: bold;
         font-size: large;
-        padding-top: 1.5rem;
-        padding-left: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+    }
+
+    .schedule-scroll {
+        height: 6.8rem;
+        overflow-y: scroll;
     }
 
     .schedule {
@@ -836,17 +916,14 @@
     }
 
     /* 하단 고정바 */
-<<<<<<< HEAD
-    .foot-bar{
-=======
     .foot-bar {
+        bottom: 0;
         position: fixed;
->>>>>>> c13c0d179074f72ec45c85a9d83215eebbc0ba4f
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 37rem;
+        width: 100vw;
         align-items: center;
         margin: 0 auto;
     }
@@ -854,7 +931,7 @@
     #foot-home{
         width: auto;
         height: 2.5rem;
-        margin-left:4rem;
+        margin-left:2.5rem;
     }
     #foot-invite{
         width: auto;
@@ -867,7 +944,7 @@
     #foot-user{
         width: auto;
         height: 2.5rem;
-        margin-right:4rem;
+        margin-right:2.5rem;
     }
     
 

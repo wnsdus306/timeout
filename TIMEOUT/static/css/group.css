@@ -8,13 +8,15 @@
 
     .page {
         width : 37rem;
-        height: 50rem;
+        height:100vh;
         background-color: #faf8f8;
         /* margin-top: 3%; */
         padding-bottom:1rem;
     }
     /* 상단 고정바 */
     .head-bar{
+        top: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -57,6 +59,25 @@
     .group-thumbnail {
         margin : 1.5rem 1.5rem;
         height: 10rem;
+        margin-top: 5.2rem;
+    }
+
+    .group-thumbnail .group-members{
+        width: 32rem;
+        height: 10rem;
+        margin: 0 auto;
+        margin-top: .5rem;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .group-thumbnail .group-members .one-member{
+        height: 10rem;
+        justify-content: center;
+    }
+    .group-thumbnail .group-members .one-member #nickname{
+        text-align: center;
     }
 
     .group-thumbnail #name{
@@ -73,9 +94,18 @@
         width: 7rem;
         height: 7rem;
         border-radius: 50%;
+        margin-left: .5rem;
     }
 
+
     /* 스케줄 이름 */
+    .schedule-scroll{
+        width: 38rem;
+        height: auto;
+        max-height: 7rem;
+        overflow-x: hidden;
+        overflow-y:scroll;
+    }
     .schedule{
         width: 35rem;
         height: 3rem;
@@ -191,11 +221,12 @@
     /* 내역전체 감싸는 태그  */
     .account-content{
         width: 35rem;
+        height: auto;
         max-height: 10rem;
         margin-left: 1rem;
         background-color: rgb(188 224 253);
         overflow: auto;
-        margin-bottom:0.7rem;
+        margin-bottom:4.4rem;
     }
 
     /* 멤버별 지각비 내역 */
@@ -240,6 +271,8 @@
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -326,12 +359,14 @@
 
     .page {
         width : 100%;
-        height: auto;
+        height: 100vh;
         background-color: #faf8f8;
         /* padding-bottom:1rem; */
     }
     /* 상단 고정바 */
     .head-bar{
+        top: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -372,14 +407,33 @@
 
     /* 젤 위에 썸네일 */
     .group-thumbnail {
-        margin-top:5%;
+        margin-top:17%;
         margin-left:5%;
         height: 8rem;
-        margin-bottom:5%;
+        margin-bottom:3%;
+    }
+
+    .group-thumbnail .group-members{
+        width: 32rem;
+        height: 10.5rem;
+        margin: 0 auto;
+        margin-top: .5rem;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .group-thumbnail .group-members .one-member{
+        height: 10rem;
+        justify-content: center;
+        margin-right: 1%;
+    }
+    .group-thumbnail .group-members .one-member #nickname{
+        text-align: center;
     }
 
     .group-thumbnail #name{
-        font-size: 0.9rem;
+        font-size: large;
         color : #1f1f1f;
         font-weight: bolder;
     }
@@ -389,15 +443,25 @@
     }
 
     .group-thumbnail #thumbnail{
-        width: 4rem;
-        height: 4rem;
+        width: 4.5rem;
+        height: 4.5rem;
         border-radius: 50%;
     }
 
+
+
     /* 스케줄 이름 */
+    .schedule-scroll{
+        width: 100%;
+        height: auto;
+        max-height: 6rem;
+        overflow-x: hidden;
+        overflow-y:scroll;
+    }
+
     .schedule{
         width : 94%;
-        height: 2rem;
+        height: 2.5rem;
         margin-left: 1rem;
         margin-right: 1rem;
         margin-bottom:0.5rem;
@@ -414,9 +478,9 @@
         display: table-cell;
         vertical-align: middle;
         width : 20.5rem;
-        height: 2rem;
+        height: 2.5rem;
         color : #f5f5f5;
-        font-size: 0.7rem;
+        font-size: 1rem;
         font-weight: bold;
     }
 
@@ -424,10 +488,10 @@
         display: table-cell;
         vertical-align: middle;
         width : 20.5rem;
-        height: 2rem;
+        height: 2.5rem;
         color :  #f5f5f5;
         font-weight: bold;
-        font-size: 0.7rem;
+        font-size: 1rem;
         text-align: center;
     }
 
@@ -435,10 +499,10 @@
         display: table-cell;
         vertical-align: middle;
         width : 20.5rem;
-        height: 2rem;
+        height: 2.5rem;
         color :  #f5f5f5;
         font-weight: bold;
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .schedule-plus{
@@ -483,17 +547,17 @@
     #group-name{
         margin-left: 5%;
         color: #f5f5f5;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }  
 
     #account-group {
         color:  #f5f5f5;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     #time-account{
         color: #f5f5f5;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     /* 그룹계좌 돈 */
@@ -511,7 +575,8 @@
     /* 내역전체 감싸는 태그  */
     .account-content{
         width : 94%;
-        max-height: 8rem;
+        height: auto;
+        max-height: 9.5rem;
         margin-left: 1rem;
         background-color: rgb(188 224 253);
         overflow: auto;
@@ -536,7 +601,7 @@
         color : #1f1f1f;
         font-weight:bold;
         text-align: right;
-        font-size:0.7rem;
+        font-size:1rem;
     }
 
     #member-name{
@@ -547,7 +612,7 @@
         color : #1f1f1f;
         font-weight:bold;
         text-align: center;
-        font-size:0.7rem;
+        font-size:1rem;
     }
 
     #member-money{
@@ -558,16 +623,18 @@
         color : #1f1f1f;
         font-weight:bold;
         text-align: end;
-        font-size:0.7rem;
+        font-size:1rem;
     }
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 37rem;
+        width: 100%;
         align-items: center;
         margin: 0 auto;
     }
@@ -575,7 +642,7 @@
     #foot-home{
         width: auto;
         height: 2.5rem;
-        margin-left:4rem;
+        margin-left:2.5rem;
     }
     #foot-invite{
         width: auto;
@@ -588,7 +655,7 @@
     #foot-user{
         width: auto;
         height: 2.5rem;
-        margin-right:4rem;
+        margin-right:2.5rem;
     }
     
 
@@ -652,12 +719,14 @@
 
     .page {
         width : 100%;
-        height: auto;
+        height: 100vh;
         background-color: #faf8f8;
         /* padding-bottom:1rem; */
     }
     /* 상단 고정바 */
     .head-bar{
+        top: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -682,7 +751,7 @@
         height: 1.8rem;
     }
 
-    #icon1:hover{
+    #logo:hover{
         cursor: pointer;
     }
 
@@ -698,34 +767,64 @@
 
     /* 젤 위에 썸네일 */
     .group-thumbnail {
-        margin-top:5%;
+        margin-top:17%;
         margin-left:5%;
-        height: 9rem;
+        height: 8rem;
         margin-bottom:3%;
+    }
+
+    .group-thumbnail .group-members{
+        width: 32rem;
+        height: 10.5rem;
+        margin: 0 auto;
+        margin-top: .5rem;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .group-thumbnail .group-members .one-member{
+        height: 10rem;
+        justify-content: center;
+        margin-right: 1%;
+    }
+    .group-thumbnail .group-members .one-member #nickname{
+        text-align: center;
     }
 
     .group-thumbnail #name{
         font-size: large;
         color : #1f1f1f;
-        font-weight: bold;
+        font-weight: bolder;
     }
     .group-thumbnail #group {
         color : #1f1f1f;
-        font-weight: bold;
+        font-weight: bolder;
     }
 
     .group-thumbnail #thumbnail{
-        width: 5rem;
-        height: 5rem;
+        width: 4.5rem;
+        height: 4.5rem;
         border-radius: 50%;
     }
 
+
+
     /* 스케줄 이름 */
+    .schedule-scroll{
+        width: 100%;
+        height: auto;
+        max-height: 6rem;
+        overflow-x: hidden;
+        overflow-y:scroll;
+    }
+
     .schedule{
         width : 94%;
-        height: 2.6rem;
-        margin-left: 3%;
-        margin-bottom: 0.5rem;
+        height: 2.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom:0.5rem;
         background-color: rgb(84 103 143);
         border-radius: 1rem 1rem;
         text-align: center;
@@ -739,9 +838,9 @@
         display: table-cell;
         vertical-align: middle;
         width : 20.5rem;
-        height: 2.6rem;
+        height: 2.5rem;
         color : #f5f5f5;
-        font-size: medium;
+        font-size: 1rem;
         font-weight: bold;
     }
 
@@ -749,31 +848,33 @@
         display: table-cell;
         vertical-align: middle;
         width : 20.5rem;
-        height: 2.6rem;
+        height: 2.5rem;
         color :  #f5f5f5;
         font-weight: bold;
-        font-size: medium;
+        font-size: 1rem;
         text-align: center;
     }
 
     .schedule #schedule-money {
         display: table-cell;
         vertical-align: middle;
-        width : 15rem;
-        height: 2.6rem;
+        width : 20.5rem;
+        height: 2.5rem;
         color :  #f5f5f5;
         font-weight: bold;
-        font-size: medium;
+        font-size: 1rem;
     }
 
     .schedule-plus{
-        margin-left: 90%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        margin-left: 92%;
         height:0.5rem;
     }
 
     #plus {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1rem;
+        height: 1rem;
         -webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,.5));
         -moz-filter: drop-shadow(0 1px 1px rgba(0,0,0,.5));
         -ms-filter: drop-shadow(0 1px 1px rgba(0,0,0,.5));
@@ -791,10 +892,9 @@
     }
 
     .account {
-        margin-top: 5%;
         width : 94%;
         height: 7rem;
-        margin-left: 3%;
+        margin-left: 1rem;
         background-color: rgb(42 182 212);
     }
 
@@ -807,17 +907,17 @@
     #group-name{
         margin-left: 5%;
         color: #f5f5f5;
-        font-size: medium;
+        font-size: 1rem;
     }  
 
     #account-group {
         color:  #f5f5f5;
-        font-size: medium;
+        font-size: 1rem;
     }
 
     #time-account{
         color: #f5f5f5;
-        font-size: medium;
+        font-size: 1rem;
     }
 
     /* 그룹계좌 돈 */
@@ -828,15 +928,16 @@
         height: 4rem;
         text-align: center;
         color: #f5f5f5;
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         font-weight:bold;
     }
 
     /* 내역전체 감싸는 태그  */
     .account-content{
         width : 94%;
-        max-height: 10rem;
-        margin-left: 3%;
+        height: auto;
+        max-height: 9.5rem;
+        margin-left: 1rem;
         background-color: rgb(188 224 253);
         overflow: auto;
         margin-bottom:0.7rem;
@@ -860,7 +961,7 @@
         color : #1f1f1f;
         font-weight:bold;
         text-align: right;
-        font-size: 0.9rem;
+        font-size:1rem;
     }
 
     #member-name{
@@ -871,7 +972,7 @@
         color : #1f1f1f;
         font-weight:bold;
         text-align: center;
-        font-size: 0.9rem;
+        font-size:1rem;
     }
 
     #member-money{
@@ -882,16 +983,18 @@
         color : #1f1f1f;
         font-weight:bold;
         text-align: end;
-        font-size: 0.9rem;
+        font-size:1rem;
     }
 
-    /* 하단고정바 */
+    /* 하단 고정바 */
     .foot-bar{
+        bottom: 0; 
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
         justify-content: space-between;
-        width: 37rem;
+        width: 100%;
         align-items: center;
         margin: 0 auto;
     }
@@ -899,7 +1002,7 @@
     #foot-home{
         width: auto;
         height: 2.5rem;
-        margin-left:4rem;
+        margin-left:2.5rem;
     }
     #foot-invite{
         width: auto;
@@ -912,7 +1015,7 @@
     #foot-user{
         width: auto;
         height: 2.5rem;
-        margin-right:4rem;
+        margin-right:2.5rem;
     }
     
 
