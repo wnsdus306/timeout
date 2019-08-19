@@ -83,10 +83,6 @@ def invite(request):
 
 
     if request.method == 'POST':
-        ################### 검색때 추가한 데이터 삭제 ####################
-        for invi_target in invitations:
-            if invi_target.title == request.POST['gr'] and invi_target.receive == request.POST['gr'] and invi_target.send == us.nickname:
-                invi_target.delete()
                 
         ############### 동일한 그룹이면 같은멤버 (수정해야함)##############
         for grp in groups:
