@@ -37,10 +37,7 @@
                 <a href="./index.html"><img id="logo" src="../static/img//로고화이트.png" alt=""></a>
                 <a href="./"><img id="icon2" src="../static/img/bell.png" alt=""></a>
             </div>
-            {% if not first %}
-            <br><br><br><br>
-            <h1>약속이없습니다.</h1>
-            {% else %}
+            {% if first %}
             <!-- 지도인증 부분 -->
             <div class="arrive">
                 <div class="map">
@@ -53,12 +50,14 @@
                         <span id="reach-pc">타임인증하기</span>
                         <span id="group-name">그룹 : {{first.group_ac.title}}</span>
                         <span id="schedule">약속내용 : {{first.title}} {{first.date.hour}}시 {{first.date.minute}}분</span>
+                    
+                        <div id="red" class="alert alert-danger" role="alert">
+                            <p id="demo" name="{{asdfa}}"></p>
+                        </div>
+    
                     </div>
 
-                    <div id="red" class="alert alert-danger" role="alert">
-                        <p id="demo" name="{{asdfa}}"></p>
-                    </div>
-
+                    
 
                     <div class="arrive-button">
                         <div class="group-img">
@@ -96,6 +95,9 @@
 
 
             </div>
+            {% else %}
+            <br><br><br><br>
+            <h1>약속이없습니다.</h1>
             {% endif %}
             <!-- 하단 고정바 -->
             <div class="foot-bar">
@@ -120,7 +122,7 @@ var infowindow = new naver.maps.InfoWindow();
 
 function onSuccessGeolocation(position) {
     var location = new naver.maps.LatLng(position.coords.latitude,
-                                         position.coords.longitude);
+                                        position.coords.longitude);
 
     map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
     map.setZoom(10); // 지도의 줌 레벨을 변경합니다.

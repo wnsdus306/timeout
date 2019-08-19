@@ -1,3 +1,11 @@
+/* 제일 굵음 */
+@font-face { font-family: 'Eoe_Zno_EB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_EB.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* bold */
+@font-face { font-family: 'Eoe_Zno_B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_B.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* medium */
+@font-face { font-family: 'Eoe_Zno_M'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_M.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* light */
+@font-face { font-family: 'Eoe_Zno_L'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_L.woff') format('woff'); font-weight: normal; font-style: normal; }
 @media screen and (min-width:550px){
     
 /* 슬라이드 바 */
@@ -69,7 +77,8 @@ display: none;
 
 /* 상단 고정바 */
 .head-bar{
-    /* position: fixed; */
+    top: 0;
+    position: fixed;
     height: 3.7rem;
     background-color: rgb(42 182 212);
     display: flex;
@@ -109,17 +118,19 @@ display: none;
     width: 37rem;
     align-items: center;
     margin: 0 auto;
-    /* margin-top: 3.7rem; */
+    /* 상단바때문에 margin 줌 */
+    margin-top: 3.7rem;
 }
 /* 안내문구 */
 #hi{
+    font-family: 'Eoe_Zno_M';
     color: white;
     float: left;
     margin-left: 2rem;
     font-size: large;
 }
 #bold{
-    font-weight: bold; 
+    font-family: 'Eoe_Zno_B';
     font-size:xx-large;
     color: white;
 }
@@ -162,6 +173,7 @@ display: none;
     overflow:auto;
 }
 .myaccount {
+    font-family: 'Eoe_Zno_M';
     width: 25rem;
     height: 13rem;
     background: rgb(188, 224, 253);
@@ -170,6 +182,7 @@ display: none;
     
 }
 .group {
+    font-family: 'Eoe_Zno_M';
     width: 25rem;
     height: 13rem;
     background: rgb(42 182 212);
@@ -325,12 +338,15 @@ display: none;
 
 /* 아래(약속) 부분 */
 .bottom{
+    font-family: 'Eoe_Zno_M';
     height: 9rem;
     background-color: #faf8f8;
     width: 37rem;
     margin: 0 auto;
     margin-top: .6rem;
     overflow:auto;
+    /* 하단바때문에 margin 줌 */
+    margin-bottom: 3.7rem;
 }
 #schedule-list{
     font-weight: bold; 
@@ -356,7 +372,6 @@ display: none;
     height: 3rem;
     color : white;
     font-size: large;
-    font-weight: bold;
 }
 
 .schedule #schedule-date {
@@ -365,7 +380,6 @@ display: none;
     width: 15rem;
     height: 3rem;
     color : white;
-    font-weight: bold;
     font-size: large;
     text-align: center;
 }
@@ -376,13 +390,13 @@ display: none;
     width: 10rem;
     height: 3rem;
     color : white;
-    font-weight: bold;
     font-size: large;
 }
 
 /* 하단 고정바 */
 .foot-bar{
-    /* position: fixed; */
+    bottom: 0;
+    position: fixed;
     height: 3.7rem;
     background-color: rgb(42 182 212);
     display: flex;
@@ -390,7 +404,6 @@ display: none;
     width: 37rem;
     align-items: center;
     margin: 0 auto;
-    bottom: 0;
 }
 
 #foot-home{
@@ -540,6 +553,7 @@ html.open {
 
     /* 상단 고정바 */
     .head-bar{
+        top: 0;
         position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -786,7 +800,7 @@ html.open {
         height: 9rem;
         background-color: #faf8f8;
         width: 100%;
-        /* margin: 0 auto; */
+        margin: 0 auto;
         margin-bottom:3.7rem;
     }
     #schedule-list{
@@ -839,6 +853,8 @@ html.open {
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom: 0;
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;
@@ -932,7 +948,7 @@ html.open {
         overflow: scroll;
     }
     /* 슬라이드 바 */
-html.open {
+    html.open {
     overflow: hidden;
     }
     
@@ -993,6 +1009,7 @@ html.open {
 
     /* 상단 고정바 */
     .head-bar{
+        top:0;
         position:fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
@@ -1239,7 +1256,7 @@ html.open {
         height: 9rem;
         background-color: #faf8f8;
         width: 100%;
-        /* margin: 0 auto; */
+        margin: 0 auto;
         margin-bottom:3.7rem;
     }
     #schedule-list{
@@ -1292,6 +1309,8 @@ html.open {
 
     /* 하단 고정바 */
     .foot-bar{
+        bottom: 0;
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;

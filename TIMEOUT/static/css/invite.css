@@ -57,8 +57,17 @@
     display: none;
     }
     
+    /* 상하단 고정바 fix */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     /* 상단 고정바 */
     .head-bar{
+    top:0;
+    position: fixed;
     height: 3.7rem;
     background-color: rgb(42 182 212);
     display: flex;
@@ -93,6 +102,7 @@
     align-items: center;
     margin: 0 auto;
     padding-top: 3rem;
+    margin-top: 3.7rem;
     }
     .nameform{
         width: 30rem;
@@ -155,7 +165,7 @@
         display: flex;
         overflow-x: scroll;
         overflow-y: hidden;
-        height: 7rem;
+        height: 10rem;
     }
     .members #mimg{
         width:5rem;
@@ -165,7 +175,7 @@
     .members #delete{
         width:2rem;
         height: 2rem;
-        /* margin-top: 5rem; */
+        margin-top: -3rem;
         margin-left: -1.7rem;
     }
     
@@ -339,7 +349,7 @@
         width: 200px;
         color: white;
         box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
-         text-align:center;
+        text-align:center;
     }
     #submit:hover { 
         transform: translateY(-3px);
@@ -351,6 +361,8 @@
     
     /* 하단 고정바 */
     .foot-bar{
+        bottom:0;
+        position: fixed;
         height: 3.7rem;
         background-color: rgb(42 182 212);
         display: flex;

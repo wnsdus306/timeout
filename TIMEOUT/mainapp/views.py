@@ -256,11 +256,11 @@ def map(request):
     sche.sort(key=lambda r:r.date)
     
     if not sche:
-        pass
+        return render(request, 'map2.html')
     else: 
         first=sche.pop(0)
         first.date += timedelta(hours=9)
-    return render(request, 'map.html', {'schedule':sche, 'first':first})
+        return render(request, 'map.html', {'schedule':sche, 'first':first})
     
 
 
